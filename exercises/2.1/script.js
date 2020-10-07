@@ -1,4 +1,5 @@
 let student = "euMesmo";
 let studentSkills = 10;
-//Vou ter sucesso na programação
+// Eu sou Tryber e estou aprendendo Git & Github
+
 console.log("Sucesso!");
