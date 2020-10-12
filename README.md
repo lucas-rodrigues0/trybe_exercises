@@ -1,3 +1,6 @@
 Curso de Desenvolvimento Web da TRYBE!
-exercicio de Git & Github - Iniciando repositório e conectando ao Github
-Módulo_02 > Dia_01
+Aluno: Lucas Rodrigues de Castro
+inicio do curso Set/2020
+
+Módulo "Fundamentos do Desenvolvimento Web"
+em progresso >>>
