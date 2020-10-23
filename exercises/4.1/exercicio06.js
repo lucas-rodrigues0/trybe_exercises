@@ -1,8 +1,8 @@
-let input = "Peao";
+let inputUser = "Torre";
 
-toLowerCase(input);
+inputUser = inputUser.toLowerCase();
 
-switch (input) {
+switch (inputUser) {
     case "peao":
         console.log("peao > a frente uma casa");
         break;
