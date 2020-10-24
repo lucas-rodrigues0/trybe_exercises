@@ -1,11 +1,11 @@
-let a = 12.75;
-let b = 13.7;
-let c = 12.65;
+let a = 50;
+let b = 50;
+let c = 40;
 
-if (a > b && a > c) {
+if (a >= b && a >= c) {
     console.log(a);
 }
-else if (b > a && b > c) {
+else if (b >= a && b >= c) {
     console.log(b);
 }
 else {
