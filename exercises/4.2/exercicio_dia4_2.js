@@ -11,12 +11,15 @@ let numbersBonus = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 let arrayBonus = [];
 
 // exercicio 01 >
+console.log("Exercicio 01");
 
 for (let i=0; i<numbers.length; i++) {
   console.log(numbers[i]);
 }
 
+console.log("---------------------");
 // exercicio 02 >
+console.log("Exercicio 02");
 
 for (x in numbers) {
   sumNumbers += numbers[x];
@@ -24,13 +27,17 @@ for (x in numbers) {
 
 console.log(sumNumbers);
 
+console.log("---------------------");
 // exercicio 03 >
+console.log("Exercicio 03");
 
 medAritmetica = sumNumbers / numbers.length;
 
 console.log(medAritmetica);
 
+console.log("---------------------");
 // exercicio 04 >
+console.log("Exercicio 04");
 
 if (medAritmetica > 20) {
   console.log('Valor maior que 20');
@@ -39,7 +46,9 @@ else {
   console.log('Valor menor ou igual a 20');
 }
 
+console.log("---------------------");
 // exercicio 05 >
+console.log("Exercicio 05");
 
 for (let i=0; i < numbers.length; i++) {
   if (numbers[i] == maiorValor || numbers[i] < maiorValor) {
@@ -53,7 +62,9 @@ for (let i=0; i < numbers.length; i++) {
 }
 console.log(maiorValor);
 
+console.log("---------------------");
 // exercicio 06 >
+console.log("Exercicio 06");
 
 for (let i=0; i < numbers.length; i++) {
   if (numbers[i] % 2 != 0) {
@@ -71,7 +82,9 @@ else {
   console.log('Nenhum valor impar encontrado!');
 }
 
+console.log("---------------------");
 // exercicio 07 >
+console.log("Exercicio 07");
 
 for (let i=0; i < numbers.length; i++) {
   if (numbers[i] == menorValor || numbers[i] > menorValor) {
@@ -85,23 +98,28 @@ for (let i=0; i < numbers.length; i++) {
 }
 console.log(menorValor);
 
+console.log("---------------------");
 // exercicio 08 >
+console.log("Exercicio 08");
 
 for (let i=0; i<25; i++) {
   novaArray.push(i +1);
 }
 
-for (x in novaArray) {
-  console.log(novaArray[x]);
-}
+console.log(novaArray);
 
+
+console.log("---------------------");
 // exercicio 09 >
+console.log("Exercicio 09");
 
 for (let i=0; i<novaArray.length; i++) {
   console.log((novaArray[i] / 2));
 }
 
+console.log("---------------------");
 // exercicio Bonus 01 >
+console.log("Exercicio Bônus 01");
 
 for (let i = 1; i < numbers.length; i++) {
   for (let j = 0; j < i; j++) {
@@ -114,11 +132,11 @@ for (let i = 1; i < numbers.length; i++) {
   }
 }
 
-for (x in numbers) {
-  console.log(numbers[x]);
-}
+console.log(numbers);
 
+console.log("---------------------");
 // exercicio Bonus 02 >
+console.log("Exercicio Bônus 02");
 
 for (let i = 1; i < numbers.length; i++) {
   for (let j = 0; j < i; j++) {
@@ -130,11 +148,13 @@ for (let i = 1; i < numbers.length; i++) {
     }
   }
 }
-for (x in numbers) {
-  console.log(numbers[x]);
-}
 
+console.log(numbers);
+
+
+console.log("---------------------");
 // exercicio Bonus 03 - usando o array numbersBonus(array inicial não ordenado) >
+console.log("Exercicio Bônus 03");
 
 for (let i=0; i<numbersBonus.length; i++) {
   let multiplicacao;
@@ -148,6 +168,5 @@ for (let i=0; i<numbersBonus.length; i++) {
   }
 }
 
-for (x in arrayBonus) {
-  console.log(arrayBonus[x]);
-}
+console.log(arrayBonus);
+
