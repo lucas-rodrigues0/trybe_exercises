@@ -1,0 +1,53 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #028090;
+}
+
+header {
+    color: #FBFCEF;
+    background-color: #022736;
+}
+
+nav {
+    background-color: #05668D;
+}
+
+nav a {
+    margin-right: 75px;
+    color: #FBFCEF;
+}
+
+main {
+    margin: 35px;
+}
+
+.main-content {
+    width: 70%;
+}
+
+article {
+    background-color: #03A8BE;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+aside {
+    background-color: #00A896;
+    width: 24%;
+    position: absolute;
+    top: 300px;
+    right: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+aside li {
+    list-style-type: none;
+    margin-right: 30px;
+    line-height: 25px;
+}
+
+footer {
+    background-color: #00A896;
+    padding: 10px 35px;
+}
