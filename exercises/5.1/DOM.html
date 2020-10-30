@@ -51,6 +51,63 @@
  Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
  Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
+  
+
+        function alteraTexto(){
+          let teste = document.getElementsByTagName('p')[1];
+          teste.innerHTML = "teste";
+        }
+
+        alteraTexto();
+
+        function alteraCorMain() {
+          let cor = document.getElementsByClassName('main-content')[0];
+          cor.style.backgroundColor = 'rgb(76, 164, 109)';
+        }
+
+        alteraCorMain();
+
+        function alteraCorCenter() {
+          let cor = document.getElementsByClassName('center-content')[0];
+          cor.style.backgroundColor = "white";
+        }
+
+        alteraCorCenter();
+
+        function alteraHeading() { 
+          let h = document.getElementsByTagName('h1')[0];
+          h.innerHTML = "Exercício 5.1 - JavaScript";
+        }
+
+        alteraHeading();
+
+        function tudoMaiuscula() {
+          let paragrafo1 = document.getElementsByTagName('p')[0];
+          paragrafo1.innerHTML = paragrafo1.innerHTML.toUpperCase();
+
+          let paragrafo2 = document.getElementsByTagName('p')[1];
+          paragrafo2.innerHTML = paragrafo2.innerHTML.toUpperCase();
+
+          let paragrafo3 =  document.getElementsByTagName('p')[2];
+          paragrafo3.innerHTML = paragrafo3.innerHTML.toUpperCase();
+
+        }
+
+        tudoMaiuscula();
+
+        function exibirConsole() {
+          let p0 = document.getElementsByTagName('p')[0].innerText;
+          let p1 = document.getElementsByTagName('p')[1].innerText;
+          let p2 = document.getElementsByTagName('p')[2].innerText;
+          
+          console.log(p0 + " " + p1 + " " + p2);
+          
+        }
+
+        exibirConsole();
+
+        
+
     </script>
   </body>
 </html>
