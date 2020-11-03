@@ -70,7 +70,12 @@
       createDivCenter.className = "center-content";
       let mainDivNode = document.querySelector('.main-content');
       mainDivNode.appendChild(createDivCenter);
-      
+
+      let createParagraph = document.createElement('p');
+      createParagraph.innerHTML = "Teste de paragrafo";
+      let centerDivNode = document.querySelector('.center-content');
+      centerDivNode.appendChild(createParagraph);
+
     </script>
   </body>
 </html>
