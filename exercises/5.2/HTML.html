@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<div id="paiDoPai">
+  <div id="pai">
+    <div id="primeiroFilho"></div>
+    <div id="elementoOndeVoceEsta">
+      <div id="primeiroFilhoDoFilho"></div>
+      <div id="segundoEUltimoFilhoDoFilho"></div>
+    </div>
+    Atenção!
+    <div id="terceiroFilho"></div>
+    <div id="quartoEUltimoFilho"></div>
+  </div>
+</div>
+  
+<script>
+  let exerc1 = document.getElementById('elementoOndeVoceEsta');
+
+  let exerc2 = document.getElementById('elementoOndeVoceEsta').parentNode;
+  exerc2.style.color = 'red';
+
+  let exerc3 = document.getElementById('primeiroFilhoDoFilho');
+  exerc3.innerHTML = 'Texto exercicio 03';
+
+  let exerc4 = document.getElementById('pai').firstChild;
+
+  let exerc5 = document.getElementById('elementoOndeVoceEsta').previousSibling;
+
+  let exerc6 = document.getElementById('elementoOndeVoceEsta').nextSibling;
+
+
+  let exerc7 = document.getElementById('elementoOndeVoceEsta').parentNode.childNodes[5];
+
+  let exerc8 = document.getElementById('pai').childNodes[5];
+
+  let exerc9_a = document.getElementById('pai');
+  let exerc9_b = document.createElement("div");
+  exerc9_a.appendChild(exerc9_b);
+
+  let exerc10_a = document.getElementById('elementoOndeVoceEsta');
+  let exerc10_b = document.createElement("div");
+  exerc10_a.appendChild(exerc10_b);
+
+  let exerc11_a = document.getElementById('primeiroFilhoDoFilho');
+  let exerc11_b = document.createElement("div");
+  exerc11_a.appendChild(exerc11_b);
+
+  let exerc12 = document.querySelector('#primeiroFilhoDoFilho div').parentNode.parentNode.nextElementSibling
+
+ let exerc13 = document.getElementById('primeiroFilhoDoFilho').nextElementSibling;
+ document.getElementById('elementoOndeVoceEsta').removeChild(exerc13);
+
+ let exerc13_a = document.getElementById('primeiroFilhoDoFilho').nextElementSibling;
+ document.getElementById('elementoOndeVoceEsta').removeChild(exerc13_a);
+
+ let exerc13_b = document.querySelector('#pai').children;
+ for (let i = 0; i < exerc13_b.length; i += 1) {
+   let aux = exerc13_b[i];
+   if (i != 1) {
+
+    document.removeChild(aux);
+   }
+ }
+
+</script>
+</body>
+</html>
