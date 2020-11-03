@@ -80,6 +80,16 @@
       createLeftContent.className = "left-content";
       mainDivNode.appendChild(createLeftContent);
 
+      let createRightContent = document.createElement('div');
+      createRightContent.className = "right-content";
+      mainDivNode.appendChild(createRightContent);
+
+      let leftDivNode = document.querySelector('.left-content');
+      let image = document.createElement('img'); 
+      image.src = "https://picsum.photos/200";
+      image.className = "small-image";
+      leftDivNode.appendChild(image);
+
     </script>
   </body>
 </html>
