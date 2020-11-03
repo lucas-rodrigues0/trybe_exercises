@@ -90,6 +90,28 @@
       image.className = "small-image";
       leftDivNode.appendChild(image);
 
+      let lista = [];
+      for (let i = 1; i <= 10; i +=1) {
+        lista.push(i);
+      }
+
+      let rightDivNode = document.querySelector('.right-content');
+      let createUl = document.createElement('ul');
+      createUl.className = "lista-desordenada";
+      rightDivNode.appendChild(createUl);
+
+      let ulNode = document.querySelector('.lista-desordenada');
+
+      for (let j = 0; j < lista.length; j += 1) {
+        let listItem = lista[j];
+
+        let createListItem = document.createElement('li');
+        createListItem.innerHTML = listItem;
+
+        ulNode.appendChild(createListItem);
+      }
+
+
     </script>
   </body>
 </html>
