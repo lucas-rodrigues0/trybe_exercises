@@ -55,3 +55,26 @@ function createButton(str) {
 };
 
 createButton('Feriados');
+
+let butaoFeriados = document.querySelector('#btn-holiday');
+let diasFeriados = document.querySelectorAll('.holiday');
+  
+
+function alteraCorFeriado() {
+  
+    for (let i = 0; i < diasFeriados.length; i +=1) {
+      let day = diasFeriados[i];
+      if (day.style.backgroundColor == "red") {
+        day.style.backgroundColor = 'null'
+      }
+      else {
+        day.style.backgroundColor = "red";
+      }
+    }
+
+}
+
+butaoFeriados.addEventListener("click", alteraCorFeriado);
+
+
+
