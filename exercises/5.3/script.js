@@ -64,16 +64,20 @@ function alteraCorFeriado() {
   
     for (let i = 0; i < diasFeriados.length; i +=1) {
       let day = diasFeriados[i];
-      if (day.style.backgroundColor == "red") {
-        day.style.backgroundColor = 'null'
-      }
-      else {
-        day.style.backgroundColor = "red";
-      }
+      day.style.backgroundColor = "red";
     }
 }
 
 butaoFeriados.addEventListener("click", alteraCorFeriado);
+
+function retornarButaoFeriado() {
+  for (let i = 0; i < diasFeriados.length; i +=1) {
+    let day = diasFeriados[i];
+    day.style.backgroundColor = 'rgb(238,238,238)';
+  }
+}
+
+butaoFeriados.addEventListener('dblclick', retornarButaoFeriado);
 
 function createButtonFriday(str) {
   let colocaButao = document.querySelector('.buttons-container');
@@ -84,3 +88,24 @@ function createButtonFriday(str) {
 };
 
 createButtonFriday('Sexta-feira');
+
+let butaoSexta = document.querySelector('#btn-friday');
+let diasSexta = document.querySelectorAll('.friday');
+
+function alteraTextoButao() {
+  for (let i = 0; i < diasSexta.length; i +=1) {
+    let day = diasSexta[i];
+    day.innerHTML = "SEXTA";
+  }
+}
+
+butaoSexta.addEventListener('click', alteraTextoButao);
+
+// function retornarButaoSexta() {
+//   for (let i = 0; i < diasSexta.length; i +=1) {
+//     let day = diasSexta[i];
+//     day.innerHTML = none;
+//   }
+// }
+
+// butaoSexta.addEventListener('dblclick', retornarButaoSexta);
