@@ -90,11 +90,6 @@
       image.className = "small-image";
       leftDivNode.appendChild(image);
 
-      let lista = [];
-      for (let i = 1; i <= 10; i +=1) {
-        lista.push(i);
-      }
-
       let rightDivNode = document.querySelector('.right-content');
       let createUl = document.createElement('ul');
       createUl.className = "lista-desordenada";
@@ -102,8 +97,10 @@
 
       let ulNode = document.querySelector('.lista-desordenada');
 
-      for (let j = 0; j < lista.length; j += 1) {
-        let listItem = lista[j];
+      let numExtenso = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+
+      for (let j = 0; j < numExtenso.length; j += 1) {
+        let listItem = numExtenso[j];
 
         let createListItem = document.createElement('li');
         createListItem.innerHTML = listItem;
@@ -114,6 +111,23 @@
       for (let k = 1; k <= 3; k +=1) {
         let createTitulo_h3 = document.createElement('h3');
         mainDivNode.appendChild(createTitulo_h3);
+      }
+
+      document.querySelector('h1').className = 'title';
+      document.getElementsByTagName('h3').className = 'description';
+
+      mainDivNode.removeChild(leftDivNode);
+
+      rightDivNode.style.marginRight = 'auto';
+
+      let paiCenterContent = document.querySelector('.center-content').parentNode;
+      paiCenterContent.style.backgroundColor = 'green';
+
+      let removeLi = document.querySelectorAll('li');
+      for (let i = 0; i < removeLi.length; i += 1) {
+        if (i == removeLi.length - 1 || i == removeLi.length - 2) {
+          ulNode.removeChild(removeLi[i]);
+        }
       }
 
     </script>
