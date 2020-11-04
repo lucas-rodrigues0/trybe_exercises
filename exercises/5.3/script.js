@@ -36,7 +36,7 @@ function createDaysOfMonth() {
     else {
       dayMonthList.className = "day";
     }
-    
+
     dayMonthList.innerHTML = daysMonth;
 
     monthDaysList.appendChild(dayMonthList);
@@ -45,3 +45,13 @@ function createDaysOfMonth() {
 };
 
 createDaysOfMonth();
+
+function createButton(str) {
+  let colocaButao = document.querySelector('.buttons-container');
+  let criaButao = document.createElement('button');
+  criaButao.id = "btn-holiday";
+  criaButao.innerHTML = str;
+  colocaButao.appendChild(criaButao);
+};
+
+createButton('Feriados');
