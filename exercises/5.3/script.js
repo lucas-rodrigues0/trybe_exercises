@@ -109,3 +109,19 @@ butaoSexta.addEventListener('click', alteraTextoButao);
 // }
 
 // butaoSexta.addEventListener('dblclick', retornarButaoSexta);
+
+// let dias = document.querySelectorAll(".day");
+
+// function zoom()
+
+
+function addTarefa(str) {
+  let criaSpan = document.createElement("span");
+  let adicionaSpan = document.querySelector(".my-tasks");
+
+  criaSpan.innerHTML = str;
+  adicionaSpan.appendChild(criaSpan);
+}
+
+addTarefa("cozinhar");
+
