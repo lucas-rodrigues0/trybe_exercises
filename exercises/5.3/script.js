@@ -125,3 +125,13 @@ function addTarefa(str) {
 
 addTarefa("cozinhar");
 
+function addLegenda(str) {
+  let criaDiv = document.createElement("div");
+  let adicionaDiv = document.querySelector(".my-tasks");
+
+  criaDiv.className = "task";
+  criaDiv.style.backgroundColor = str;
+  adicionaDiv.appendChild(criaDiv);
+}
+
+addLegenda("orange");
