@@ -52,7 +52,7 @@ function createButton(str, id) {
   const criaBotao = document.createElement('button');
   criaBotao.id = id;
   criaBotao.innerHTML = str;
-  colocaBotao.appendChild(criaButao);
+  colocaBotao.appendChild(criaBotao);
 };
 
 createButton("Feriados", "btn-holiday");
@@ -63,15 +63,16 @@ function alteraCorFeriado() {
   
   const botaoFeriados = document.querySelector('#btn-holiday');
   const diasFeriados = document.querySelectorAll('.holiday');
+  const listaDias = document.querySelector(".days-container");
   
   botaoFeriados.addEventListener("click", alteraCor);
   function alteraCor() {
     for (let i = 0; i < diasFeriados.length; i +=1) {
-      if (diasFeriados[i].style.backgroundColor == "white") {
+      if (diasFeriados[i].style.backgroundColor === listaDias.style.backgroundColor) {
         diasFeriados[i].style.backgroundColor = "red";
       }
       else {
-        diasFeriados[i].style.backgroundColor = "white";
+        diasFeriados[i].style.backgroundColor = "";
       }
     }
   }
@@ -85,77 +86,105 @@ createButton("Sexta-feira", "btn-friday");
 //Exercicio 05
 // lógica inversa do botao com entendimento pelo "plantão triad of Power"
 function alteraTextoButao() {
-  let botaoSexta = document.querySelector('#btn-friday');
-  let diasSexta = document.querySelectorAll('.friday');
+  const botaoSexta = document.querySelector('#btn-friday');
+  const diasSexta = document.querySelectorAll('.friday');
 
   botaoSexta.addEventListener('click', alteraTexto);
   function alteraTexto() {
     for (let i = 0; i < diasSexta.length; i +=1) {
-    let day = diasSexta[i];
-    if (day.innerText === "SEXTA!!!") {
-      day.innerText = Number(day.previousElementSibling.innerText) + 1;
+      let day = diasSexta[i];
+      if (day.innerText === "SEXTA!!!") {
+        day.innerText = Number(day.previousElementSibling.innerText) + 1;
+      }
+      else {
+        day.innerText = "SEXTA!!!";
+      }
     }
-    else {
-      day.innerText = "SEXTA!!!";
-    }
-    
-  }
   }
   
 }
 alteraTextoButao();
 
+//Exercicio 06
+// com entendimento pelo "plantão triad of Power"
+const days = document.querySelector("#days");
 
+function zoomDia() {
+  days.addEventListener("mouseover", function (event) {
+    event.target.style.fontSize = "28px";
+    event.target.style.fontWeight = "bold";
+  });
+}
+zoomDia();
 
-// function retornarButaoSexta() {
-//   for (let i = 0; i < diasSexta.length; i +=1) {
-//     let day = diasSexta[i];
-//     day.innerHTML = none;
-//   }
-// }
+function zoomOutDia() {
+  const days = document.querySelector("#days");
 
-// butaoSexta.addEventListener('dblclick', retornarButaoSexta);
+  days.addEventListener("mouseout", function(event) {
+    event.target.style.fontSize = "20px";
+    event.target.style.fontWeight = "normal";
+  });
+}
+zoomOutDia();
 
-// let dias = document.querySelectorAll(".day");
+//Exercicio 07
 
-// function zoom()
-
+const adicionaDiv = document.querySelector(".my-tasks");
 
 function addTarefa(str) {
-  let criaSpan = document.createElement("span");
-  let adicionaSpan = document.querySelector(".my-tasks");
-
+  const criaSpan = document.createElement("span");
+  
   criaSpan.innerHTML = str;
-  adicionaSpan.appendChild(criaSpan);
+  adicionaDiv.appendChild(criaSpan);
 }
 
 addTarefa("cozinhar");
 
+//Exercicio 08
 function addLegenda(str) {
-  let criaDiv = document.createElement("div");
-  let adicionaDiv = document.querySelector(".my-tasks");
-
+  const criaDiv = document.createElement("div");
   criaDiv.className = "task";
   criaDiv.style.backgroundColor = str;
+
   adicionaDiv.appendChild(criaDiv);
 }
 
 addLegenda("orange");
 
-let selectDiv = document.querySelector(".task");
-
+//Exercicio 09
+// com entendimento pelo "plantão triad of Power"
 function selecionaTarefa() {
-  selectDiv.className = "task selected";
+  const taskDiv = document.querySelector(".task");
+
+  taskDiv.addEventListener("click", function(event) {
+    const selectDiv = document.querySelector(".task.selected");
+    if (selectDiv === null) {
+      event.target.className = "task selected";
+    }
+    else {
+      event.target.className = "task";
+    }
+  });
 }
 
-selectDiv.addEventListener("click", selecionaTarefa);
+selecionaTarefa();
 
-let unselectDiv = document.querySelector(".task selected");
-
-function unselecionaTarefa() {
-  unselectDiv.className = "task";
+//Exercicio 10
+// com entendimento pelo "plantão triad of Power"
+function tarefaDia() {
+  days.addEventListener("click", function(event) {
+    const selectDiv = document.querySelector(".selected");
+    if (selectDiv != null) {
+       if (event.target.style.color === selectDiv.style.backgroundColor) {
+        event.target.style.color = "rgb(119,119,119)";
+      }
+      else {
+        event.target.style.color = selectDiv.style.backgroundColor;
+      }
+    }
+  });
 }
 
-unselectDiv.addEventListener("click", unselecionaTarefa);
+tarefaDia();
 
 
