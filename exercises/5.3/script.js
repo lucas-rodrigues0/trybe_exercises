@@ -15,7 +15,7 @@ createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
 
-
+//Exercicio 01
 function createDaysOfMonth() {
   const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
   const monthDaysList = document.querySelector('#days');
@@ -46,60 +46,66 @@ function createDaysOfMonth() {
 
 createDaysOfMonth();
 
-function createButtonHoliday(str) {
-  let colocaButao = document.querySelector('.buttons-container');
-  let criaButao = document.createElement('button');
-  criaButao.id = "btn-holiday";
-  criaButao.innerHTML = str;
-  colocaButao.appendChild(criaButao);
+//Exercicio 02
+function createButton(str, id) {
+  const colocaBotao = document.querySelector('.buttons-container');
+  const criaBotao = document.createElement('button');
+  criaBotao.id = id;
+  criaBotao.innerHTML = str;
+  colocaBotao.appendChild(criaButao);
 };
 
-createButtonHoliday('Feriados');
+createButton("Feriados", "btn-holiday");
 
-let butaoFeriados = document.querySelector('#btn-holiday');
-let diasFeriados = document.querySelectorAll('.holiday');
-  
-
+//Exercicio 03
+// lógica inversa do botao com entendimento pelo "plantão triad of Power"
 function alteraCorFeriado() {
   
+  const botaoFeriados = document.querySelector('#btn-holiday');
+  const diasFeriados = document.querySelectorAll('.holiday');
+  
+  botaoFeriados.addEventListener("click", alteraCor);
+  function alteraCor() {
     for (let i = 0; i < diasFeriados.length; i +=1) {
-      let day = diasFeriados[i];
-      day.style.backgroundColor = "red";
+      if (diasFeriados[i].style.backgroundColor == "white") {
+        diasFeriados[i].style.backgroundColor = "red";
+      }
+      else {
+        diasFeriados[i].style.backgroundColor = "white";
+      }
     }
-}
-
-butaoFeriados.addEventListener("click", alteraCorFeriado);
-
-function retornarButaoFeriado() {
-  for (let i = 0; i < diasFeriados.length; i +=1) {
-    let day = diasFeriados[i];
-    day.style.backgroundColor = 'rgb(238,238,238)';
   }
 }
+alteraCorFeriado();
 
-butaoFeriados.addEventListener('dblclick', retornarButaoFeriado);
+//Exercicio 04
+// refatoraçao com entendimento pelo "plantão triad of Power"
+createButton("Sexta-feira", "btn-friday");
 
-function createButtonFriday(str) {
-  let colocaButao = document.querySelector('.buttons-container');
-  let criaButao = document.createElement('button');
-  criaButao.id = "btn-friday";
-  criaButao.innerHTML = str;
-  colocaButao.appendChild(criaButao);
-};
-
-createButtonFriday('Sexta-feira');
-
-let butaoSexta = document.querySelector('#btn-friday');
-let diasSexta = document.querySelectorAll('.friday');
-
+//Exercicio 05
+// lógica inversa do botao com entendimento pelo "plantão triad of Power"
 function alteraTextoButao() {
-  for (let i = 0; i < diasSexta.length; i +=1) {
-    let day = diasSexta[i];
-    day.innerHTML = "SEXTA";
-  }
-}
+  let botaoSexta = document.querySelector('#btn-friday');
+  let diasSexta = document.querySelectorAll('.friday');
 
-butaoSexta.addEventListener('click', alteraTextoButao);
+  botaoSexta.addEventListener('click', alteraTexto);
+  function alteraTexto() {
+    for (let i = 0; i < diasSexta.length; i +=1) {
+    let day = diasSexta[i];
+    if (day.innerText === "SEXTA!!!") {
+      day.innerText = Number(day.previousElementSibling.innerText) + 1;
+    }
+    else {
+      day.innerText = "SEXTA!!!";
+    }
+    
+  }
+  }
+  
+}
+alteraTextoButao();
+
+
 
 // function retornarButaoSexta() {
 //   for (let i = 0; i < diasSexta.length; i +=1) {
@@ -135,3 +141,21 @@ function addLegenda(str) {
 }
 
 addLegenda("orange");
+
+let selectDiv = document.querySelector(".task");
+
+function selecionaTarefa() {
+  selectDiv.className = "task selected";
+}
+
+selectDiv.addEventListener("click", selecionaTarefa);
+
+let unselectDiv = document.querySelector(".task selected");
+
+function unselecionaTarefa() {
+  unselectDiv.className = "task";
+}
+
+unselectDiv.addEventListener("click", unselecionaTarefa);
+
+
