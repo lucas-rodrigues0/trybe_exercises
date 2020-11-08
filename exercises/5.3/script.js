@@ -133,7 +133,6 @@ const adicionaDiv = document.querySelector(".my-tasks");
 
 function addTarefa(str) {
   const criaSpan = document.createElement("span");
-  
   criaSpan.innerHTML = str;
   adicionaDiv.appendChild(criaSpan);
 }
@@ -187,4 +186,32 @@ function tarefaDia() {
 
 tarefaDia();
 
+//Exercicio Bonus
 
+function adicionarCompromisso() {
+  const addCompromissoList = document.querySelector('.task-list');
+  const botaoAdicionar = document.getElementById('btn-add');
+  const addTextoCompromisso = document.getElementById('task-input');
+
+  addTextoCompromisso.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      criaCompromisso();
+    }
+  });
+  
+  botaoAdicionar.addEventListener('click', criaCompromisso);
+
+  function criaCompromisso() {
+    let criaListaCompromisso = document.createElement('li');
+
+    if (addTextoCompromisso.value == '') {
+      alert('Compromisso indefinido!');
+    }
+    else {
+       criaListaCompromisso.innerText = addTextoCompromisso.value;
+      addCompromissoList.appendChild(criaListaCompromisso);
+    }
+  }
+}
+
+adicionarCompromisso();
