@@ -1,11 +1,4 @@
-// Define setting padrão
-const stdDefObj = {
-  backgroundColor: 'white',
-  color: 'black',
-  fontSize: 'medium',
-  lineHeight: 'normal',
-  fontFamily: 'monospace',
-}
+
 let definitions = {
   backgroundColor: '',
   color: '',
@@ -24,7 +17,21 @@ function setDefinitions() {
   mainDefinitions.style.fontFamily = definitions.fontFamily;
 }
 
+//Atualiza o localStorage
+function updateSettings() {
+  localStorage.setItem('settings',  JSON.stringify(definitions));
+} 
 
+//retorna a definições padrão
+function standartDefinition() {
+  definitions.backgroundColor = 'white';
+  definitions.color = 'black';
+  definitions.fontSize = 'medium';
+  definitions.lineHeight = 'normal';
+  definitions.fontFamily = 'monospace';
+  setDefinitions();
+  updateSettings();
+};
 
 // Verifica se já há um localStorage e resgata as definições, se negativo cria um.
 if (localStorage.settings === undefined) {
@@ -33,15 +40,9 @@ if (localStorage.settings === undefined) {
 else {
   let settingLocal = localStorage.getItem('settings')
   definitions = JSON.parse(settingLocal);
+  setDefinitions();
 };
-console.log(definitions);
-
-setDefinitions();
-
-//Atualiza o localStorage
-function updateSettings() {
-  localStorage.setItem('settings',  JSON.stringify(definitions));
-} 
+// console.log(definitions);
 
 //Altera as definições do setting e faz o update no localStorage.
 const fundoTelaBtn = document.getElementById('background-btn');
@@ -87,16 +88,10 @@ familyBtn.addEventListener('click', function(){
 //Limpa localStorage
 const clearDefinitions = document.getElementById("clearStorage-btn");
 clearDefinitions.addEventListener('click', function() {
-  localStorage.removeItem('setting');
+  delete localStorage.settings;
 });
 
-//Retorna a padrão de definições
+//Aciona botao para padrão de definições
 const stdDefinitions = document.getElementById("std-definition-btn");
 stdDefinitions.addEventListener('click', standartDefinition);
-
-function standartDefinition() {
-  definitions = stdDefObj;
-  updateSettings();
-  setDefinitions();
-};
 
