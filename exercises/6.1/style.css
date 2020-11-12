@@ -1,0 +1,24 @@
+body {
+  margin: 15px;
+}
+
+fieldset {
+  margin-top: 30px;
+}
+
+input {
+  margin: 10px;
+}
+
+.line {
+  display: block;
+  width: 95%;
+}
+
+select {
+  margin: 10px 0px 0px 10px;
+}
+
+textarea {
+  margin: 10px;
+}

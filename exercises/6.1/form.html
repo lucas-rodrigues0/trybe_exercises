@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Formulário de cadastro de currículo</h1>
+  </header>
+  <form action="" method="GET" id="forms">
+    <fieldset class="personal-information">
+      <legend>Dados pessoais:</legend>
+        <label for="input-name">Nome Completo:
+          <input type="text" name="username" id="input-name" class="line" maxlength="40" required>
+        </label>
+        <label for="input-email">E-mail:
+          <input type="text" name="e-mail" id="input-email" class="line" maxlength="50" required>
+        </label>
+        <label for="input-cpf">CPF:
+          <input type="text" name="cpf" id="input-cpf" class="line" maxlength="11" required>
+        </label>
+        <label for="input-address">Endereço Completo:
+          <input type="text" name="address" id="input-address" class="line" maxlength="200" required>
+        </label>
+        <label for="input-city">Cidade:
+          <input type="text" name="city" id="input-city" class="line" maxlength="28" required>
+        </label>
+        <label for="">Estado:
+          <select name="state" id="input-state" class="line" required>
+          </select>
+        </label>
+          <label for="input-typeHouse1">Tipo de Moradia:
+            <input type="radio" name="house" id="input-typeHouse1" value="apartamento">Apartamento
+          </label>
+          <label for="input-typeHouse2">
+            <input type="radio" name="house" id="input-typeHouse2" value="casa">Casa
+          </label>
+    </fieldset>
+    <fieldset class='professional-information'>
+      <legend>Experiência profissional:</legend>
+      <label for="input-resume" class="line">Resumo do currículo:</label>
+      <textarea name="resume" id="input-resume" class="line" cols="30" rows="10" maxlength="1000" placeholder="Escreva seu currículo com até 1000 caracteres" required></textarea>
+      <label for="input-role" class="line">Cargo:</label>
+      <input type="text" name="role" id="input-role" class="line" maxlength="40" required>
+      <label for="input-description">Descrição do cargo:</label>
+      <input type="text" name="jobDescription" id="input-description" class="line" maxlength="500" required>
+      <label for="input-date">Data de início:</label>
+      <input type="text" name="date" id="input-date" class="line" required>
+    </fieldset>
+  </form>
+  <section>
+    <button id="verify-btn">Verificar Formulário</button>
+    <button id="erase-btn">Limpar Formulário</button>
+  </section>
+  <section>
+    <div id="form-visualization"></div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
