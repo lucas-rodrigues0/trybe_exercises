@@ -10,23 +10,28 @@ for (let index = 0; index < braStates.length; index += 1) {
 }
 
 
-function verifyDateFormat() {
+function verifyDateFormat(value) {
   const inputDateValue = document.getElementById('input-date').value;
-  let verifiedCondition = true;
-
+  let verifiedCondition = false;
+  let countVerification = 0;
   if (inputDateValue.length === 10) {
     let arraySplitDate = inputDateValue.split('/');
     
     if (arraySplitDate.length === 3) {
-      for (let index = 0; index < arraySplitDate.length; index += 1) {
-        if (arraySplitDate[0] < 0 || arraySplitDate[0] > 31 || arraySplitDate[0] != Number) {
-          verifiedCondition = false;
-        } else if (arraySplitDate[1] < 0 || arraySplitDate[1] > 12 || arraySplitDate[1] != Number) {
-          verifiedCondition = false;
-        } else if (arraySplitDate[2] < 1900 || arraySplitDate[2] > 2020 || arraySplitDate[2] != Number) {
-          verifiedCondition = false;
-        }
+      
+      if (arraySplitDate[0] >= 0 && arraySplitDate[0] <= 31) {
+        countVerification += 1;
       }
+      if (arraySplitDate[1] >= 0 && arraySplitDate[1] <= 12) {
+        countVerification += 1;
+      }
+      if (arraySplitDate[2] >= 1900 && arraySplitDate[2] <= 2020) {
+        countVerification += 1;
+      }
+      if (countVerification == 3) {
+        verifiedCondition = true;
+      }
+
     } else {
       verifiedCondition = false;
     }
@@ -54,8 +59,7 @@ const verifyBtn = document.getElementById('verify-btn');
 verifyBtn.addEventListener('click', visualizeForm);
 
 function visualizeForm(event) {
-  
-  event.preventDefault();
+  removeVisualizationDiv();
 
   let input1 = 'Nome Completo:';
   let input1Value = document.querySelector('#input-name').value;
@@ -70,7 +74,12 @@ function visualizeForm(event) {
   let input6 = 'Estado:';
   let input6Value = document.querySelector('#input-state').value;
   let input7 = 'Tipo de Moradia:';
-  let input7Value = document.querySelector('.typeHouse').value;
+  let input7Value = '';
+  if (document.getElementsByName('house')[0].checked) {
+    input7Value = document.getElementsByName('house')[0].value;
+  } else if (document.getElementsByName('house')[1].checked) {
+    input7Value = document.getElementsByName('house')[1].value;
+  }
   let input8 = 'Resumo do currículo:';
   let input8Value = document.querySelector('#input-resume').value;
   let input9 = 'Cargo';
@@ -78,73 +87,87 @@ function visualizeForm(event) {
   let input10 = 'Descrição do cargo:';
   let input10Value = document.querySelector('#input-description').value;
   let input11 = 'Data de início:';
-  let input11Value = document.querySelector('#input-date').value;
+  let input11Value = '';
+  if (verifyDateFormat(document.querySelector('#input-date').value)) {
+    input11Value = document.querySelector('#input-date').value;
+  }
   
 
   if (input1Value != '') {
     createresultSpan(input1, input1Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o Nome Completo');
     removeVisualizationDiv();
   }
   if (input2Value != '') {
     createresultSpan(input2, input2Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o E-mail');
     removeVisualizationDiv();
   }
   if (input3Value != '') {
     createresultSpan(input3, input3Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o CPF');
     removeVisualizationDiv();
   }
   if (input4Value != '') {
     createresultSpan(input4, input4Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o Endereço Completo');
     removeVisualizationDiv();
   }
   if (input5Value != '') {
     createresultSpan(input5, input5Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o Cidade');
     removeVisualizationDiv();
   }
   if (input6Value != '') {
     createresultSpan(input6, input6Value);
   } else {
+    event.preventDefault();
     alert('Por favor inserir o Estado');
     removeVisualizationDiv();
   }
   if (input7Value != '') {
     createresultSpan(input7, input7Value);
   } else {
-    alert('Por favor inserir o Resumo do currículo');
+    event.preventDefault();
+    alert('Tipo de moradia não selecionado');
     removeVisualizationDiv();
   }
   if (input8Value != '') {
     createresultSpan(input8, input8Value);
   } else {
-    alert('Por favor inserir o Cargo');
+    event.preventDefault();
+    alert('Por favor inserir o Resumo do currículo');
     removeVisualizationDiv();
   }
   if (input9Value != '') {
     createresultSpan(input9, input9Value);
   } else {
-    alert('Por favor inserir o Descrição do cargo');
+    event.preventDefault();
+    alert('Por favor inserir o Cargo');
     removeVisualizationDiv();
   }
   if (input10Value != '') {
     createresultSpan(input10, input10Value);
   } else {
-    alert('Por favor inserir o Nome Completo');
+    event.preventDefault();
+    alert('Por favor inserir o Descrição do cargo');
     removeVisualizationDiv();
   }
-  if (input11Value != '' || verifyDateFormat()) {
+  if (input11Value != '') {
     createresultSpan(input11, input11Value);
   } else {
-    alert('Por favor inserir o Data de início no padrão dd/mm/aaaa');
+    event.preventDefault();
+    alert('Por favor inserir a data com o padrão dd/mm/aaaa');
     removeVisualizationDiv();
   }
 }
@@ -159,7 +182,7 @@ function eraseForm() {
     document.querySelector('#input-address').value = '';
     document.querySelector('#input-city').value = '';
     document.querySelector('#input-state').value = '';
-    document.querySelector('.typeHouse').value = '';
+  
     document.querySelector('#input-resume').value = '';
     document.querySelector('#input-role').value = '';
     document.querySelector('#input-description').value = '';
@@ -169,4 +192,3 @@ function eraseForm() {
   });
 }
 eraseForm();
- 
