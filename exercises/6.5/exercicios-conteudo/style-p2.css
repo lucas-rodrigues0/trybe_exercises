@@ -1,0 +1,49 @@
+body {
+  font-style: italic;
+}
+
+.com-borda {
+  border: 1px solid green;
+}
+
+h1 {
+  background: blue;
+  box-shadow: 1px 1px 5px green;
+}
+
+h1[class="azul"] {
+  color: blue;
+  font-size: 20px;
+}
+
+h1[class^="azul"] {
+  color: blue;
+  font-size: 20px;
+}
+
+h1[class$="azul"] {
+  color: red;
+  font-size: 20px;
+}
+
+input[type="submit"] {
+  color: red;
+}
+h1:nth-of-type(1) {
+  color: red;
+}
+
+.caixaMae {
+  width: 200px;
+}
+
+.caixa {
+  width: 50%;
+  border: 1px solid #000;
+}
+
+@media and screen and (max-width: 400px) {
+  body {
+    background-color: yellow;
+  }
+};
