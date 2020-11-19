@@ -130,3 +130,33 @@ footer p {
     font-size: 28px;
   }
 }
+
+@media screen and (min-width: 1400px) {
+  body {
+    font-size: 30px;
+  }
+  header p {
+    padding: 0 100px;
+  }
+  nav {
+    margin: 30px 100px 0;
+  }
+  .aside-container  {
+    font-size: 24px;
+    margin-left: 100px;
+  }
+  .chapter h1 {
+    font-size: 35px;
+    padding-left: 100px;
+  }
+  .chapter h2 {
+    font-size: 33px;
+    padding-left: 125px;
+  }
+  .main-content p {
+    margin: 30px 125px;
+  }
+  footer p {
+    padding: 0 65px;
+  }
+}
