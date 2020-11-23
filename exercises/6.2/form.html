@@ -4,79 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário</title>
-  <link rel="stylesheet" href="/bulma-0.9.1/bulma/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/bulma-0.9.1/bulma/css/bulma.min.css">
+
 </head>
-<body>
-  <header>
-    <div class="container">
-      <h1 class="title is-4">Formulário de cadastro de currículo</h1>
+<body class="p-6 has-background-grey-lighter">
+  <header class="p-5">
+    <div class="container is-flex is-justify-content-center">
+      <h1 class="title is-4 has-text-grey-dark">Formulário de cadastro de currículo</h1>
     </div>
   </header>
-  <form action="" method="GET" class="container" id="forms">
+
+  <form action="" method="GET" class="container px-5" id="forms">
     <div class="field">
       <fieldset class="field">
-        <legend class="subtitle is-6">Dados pessoais:</legend>
+        <legend class="subtitle is-6 has-text-weight-semibold has-text-grey-dark has-text-centered">- Dados pessoais -</legend>
 
-        <div class="control">
-          <label class="label" for="input-name">Nome Completo:</label>
-          <input type="text" name="username" id="input-name" class="input" maxlength="40" required>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-name">Nome Completo:</label>
+          <input type="text" name="username" id="input-name" class="input validate has-background-white-ter" maxlength="40" required>
         </div>
-        <div class="control">
-          <label class="label" for="input-email">E-mail:</label>
-          <input type="text" name="e-mail" id="input-email" class="input" maxlength="50" required>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-email">E-mail:</label>
+          <input type="text" name="e-mail" id="input-email" class="input validate has-background-white-ter" maxlength="50" required>
         </div>
-        <div class="control">
-          <label class="label" for="input-cpf">CPF:</label>
-          <input type="text" name="cpf" id="input-cpf" class="input" maxlength="11" required>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-cpf">CPF:</label>
+          <input type="text" name="cpf" id="input-cpf" class="input validate has-background-white-ter" maxlength="11" required>
         </div>
-        <div class="control">
-          <label class="label" for="input-address">Endereço Completo:</label>
-          <input type="text" name="address" id="input-address" class="input" maxlength="200" required>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-address">Endereço Completo:</label>
+          <input type="text" name="address" id="input-address" class="input validate has-background-white-ter" maxlength="200" required>
         </div>
-        <div class="control">
-          <label class="label" for="input-city">Cidade:</label>
-          <input type="text" name="city" id="input-city" class="input" maxlength="28" required>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-city">Cidade:</label>
+          <input type="text" name="city" id="input-city" class="input validate has-background-white-ter" maxlength="28" required>
         </div>
-        <div class="control">
-          <label class="label" for="input-state">Estado:</label>
-          <select name="state" id="input-state" class="select" required></select>
+        <div class="control mb-4">
+          <label class="label has-text-grey-dark" for="input-state">Estado:</label>
+          <select name="state" id="input-state" class="select validate has-background-white-ter" required></select>
         </div>
-        <div class="control">
-          <span class="label">Tipo de Moradia:</span>
+        <div class="control mb-4">
+          <span class="label has-text-grey-dark mt-2">Tipo de Moradia:</span>
           <label class="checkbox" for="input-typeHouse1">
-          <input type="radio" name="house" id="input-typeHouse1" class="radio" value="apartamento">Apartamento</label>
+          <input type="radio" name="house" id="input-typeHouse1" class="radio validate mr-1 has-background-white-ter" value="apartamento">Apartamento</label>
           <label class="checkbox" for="input-typeHouse2">
-          <input type="radio" name="house" id="input-typeHouse2" class="radio" value="casa">Casa</label> 
+          <input type="radio" name="house" id="input-typeHouse2" class="radio validate mr-1 ml-4 has-background-white-ter" value="casa">Casa</label> 
         </div> 
       </fieldset>
     </div>
     <div class="">
       <fieldset class='field'>
-        <legend class="subtitle is-6">Experiência profissional:</legend>
+        <legend class="subtitle is-6 has-text-weight-semibold has-text-grey-dark has-text-centered">- Experiência profissional -</legend>
 
-        <div class="control">
-          <label for="input-resume" class="label">Resumo do currículo:</label>
-          <textarea name="resume" id="input-resume" class="textarea" cols="30" rows="10" maxlength="1000" placeholder="Escreva seu currículo com até 1000 caracteres" required></textarea>
+        <div class="control mb-4">
+          <label for="input-resume" class="label has-text-grey-dark">Resumo do currículo:</label>
+          <textarea name="resume" id="input-resume" class="textarea validate has-background-white-ter" cols="30" rows="10" maxlength="1000" placeholder="Escreva seu currículo com até 1000 caracteres" required></textarea>
         </div>
-        <div class="control">
-          <label for="input-role" class="label">Cargo:</label>
-          <input type="text" name="role" id="input-role" class="input" maxlength="40" required>
+        <div class="control mb-4">
+          <label for="input-role" class="label has-text-grey-dark">Cargo:</label>
+          <input type="text" name="role" id="input-role" class="input validate has-background-white-ter" maxlength="40" required>
         </div>
-        <div class="control">
-          <label for="input-description" class="label">Descrição do cargo:</label>
-          <input type="text" name="jobDescription" id="input-description" class="input" maxlength="500" required>
+        <div class="control mb-4">
+          <label for="input-description" class="label has-text-grey-dark">Descrição do cargo:</label>
+          <input type="text" name="jobDescription" id="input-description" class="input validate has-background-white-ter" maxlength="500" required>
         </div>
-        <div class="control">
-          <label for="input-date" class="label">Data de início:</label>
-          <input type="text" name="date" id="input-date" class="input" placeholder="DD/MM/AAAA" required>
+        <div class="control mb-4">
+          <label for="input-date" class="label has-text-grey-dark">Data de início:</label>
+          <input type="text" name="date" id="input-date" class="input validate has-background-white-ter" placeholder="DD/MM/AAAA" required>
         </div>
       </fieldset>
     </div>
   </form>
 
-  <section class='control'>
-    <button type="submit" class="button" id="verify-btn">Enviar</button>
-    <button class="button" id="erase-btn">Limpar Formulário</button>
+  <section class='control px-5 mt-5 is-flex is-justify-content-center'>
+    <button type="submit" class="button box has-background-grey-light is-align-items-center mx-3" id="verify-btn">Enviar</button>
+    <button class="button box has-background-grey-light is-align-items-center mx-3" id="erase-btn">Limpar Formulário</button>
   </section>
   
   <section class="">
