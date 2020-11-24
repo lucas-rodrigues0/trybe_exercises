@@ -1,3 +1,11 @@
+function datePicker() {
+  document.getElementById('input-date').DatePickerX.init({
+    format: 'dd/mm/yyyy',
+  });
+}
+
+datePicker();
+
 const braStates = ['Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul', 'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia', 'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'];
 
 const selectTag = document.getElementById('input-state');
@@ -10,34 +18,34 @@ for (let index = 0; index < braStates.length; index += 1) {
 }
 
 
-function verifyDateFormat(value) {
-  const inputDateValue = document.getElementById('input-date').value;
-  let verifiedCondition = false;
-  let countVerification = 0;
-  if (inputDateValue.length === 10) {
-    let arraySplitDate = inputDateValue.split('/');
+// function verifyDateFormat(value) {
+//   const inputDateValue = document.getElementById('input-date').value;
+//   let verifiedCondition = false;
+//   let countVerification = 0;
+//   if (inputDateValue.length === 10) {
+//     let arraySplitDate = inputDateValue.split('/');
     
-    if (arraySplitDate.length === 3) {
+//     if (arraySplitDate.length === 3) {
       
-      if (arraySplitDate[0] >= 0 && arraySplitDate[0] <= 31) {
-        countVerification += 1;
-      }
-      if (arraySplitDate[1] >= 0 && arraySplitDate[1] <= 12) {
-        countVerification += 1;
-      }
-      if (arraySplitDate[2] >= 1900 && arraySplitDate[2] <= 2020) {
-        countVerification += 1;
-      }
-      if (countVerification == 3) {
-        verifiedCondition = true;
-      }
+//       if (arraySplitDate[0] >= 0 && arraySplitDate[0] <= 31) {
+//         countVerification += 1;
+//       }
+//       if (arraySplitDate[1] >= 0 && arraySplitDate[1] <= 12) {
+//         countVerification += 1;
+//       }
+//       if (arraySplitDate[2] >= 1900 && arraySplitDate[2] <= 2020) {
+//         countVerification += 1;
+//       }
+//       if (countVerification == 3) {
+//         verifiedCondition = true;
+//       }
 
-    } else {
-      verifiedCondition = false;
-    }
-  }
-  return verifiedCondition;
-}
+//     } else {
+//       verifiedCondition = false;
+//     }
+//   }
+//   return verifiedCondition;
+// }
 
 const formVisualization = document.getElementById('form-visualization');
 
@@ -87,10 +95,10 @@ function visualizeForm(event) {
   let input10 = 'Descrição do cargo:';
   let input10Value = document.querySelector('#input-description').value;
   let input11 = 'Data de início:';
-  let input11Value = '';
-  if (verifyDateFormat(document.querySelector('#input-date').value)) {
-    input11Value = document.querySelector('#input-date').value;
-  }
+  let input11Value = document.querySelector('#input-date').value;
+  // if (verifyDateFormat(document.querySelector('#input-date').value)) {
+  //   input11Value = document.querySelector('#input-date').value;
+  // }
   
 
   if (input1Value != '') {
