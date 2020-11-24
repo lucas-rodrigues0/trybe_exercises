@@ -72,18 +72,16 @@ console.log(longestWord("Antônio foi no banheiro e não sabemos o que aconteceu
 
 // Parte II - req 04
 
-const lookForX = (str, par) => {
-  let words = str.split(' ');
-  let output;
-  for (let index in words) {
-    if (words[index] === 'x') {
-      words[index] = par;
-    }
-    output += `${words[index]}`
-  }
-  return output;
-}
+const lookForX = (str, par) => str.replace('x', par);
 
-console.log(lookForX('Tryber x aqui!', 'cheese'));
+// console.log(lookForX('Tryber x aqui!', 'cheese'));
 
-let skills = []
+let skills = ['Unix', 'Git', 'HTML', 'CSS', 'ECMAS6'];
+
+const mySkills = strX => {
+  skills.sort();
+
+  return `${strX}\nMinhas cinco principais habilidades são:\n${skills}\n#goTrybe`;
+};
+
+console.log(mySkills(lookForX('Tryber x aqui!', 'cheese')));
