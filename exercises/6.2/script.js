@@ -119,10 +119,7 @@ window.onload = function () {
   eraseForm();
 
   const submitBtn = document.getElementById('verify-btn');
-  submitBtn.addEventListener('click', function (event) {
-    showForm();
-    event.preventDefault();
-  });
+  submitBtn.addEventListener('click', showForm);
 
 };
 
