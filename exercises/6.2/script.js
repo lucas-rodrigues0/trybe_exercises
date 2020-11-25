@@ -111,14 +111,17 @@ window.onload = function () {
       jobDescription: 'Insira uma descrição do cargo.',
       date: 'Insira a data de início.',
     },
+
+    colorWrong: 'red',
+
   });
 
   eraseForm();
 
   const submitBtn = document.getElementById('verify-btn');
-  submitBtn.addEventListener('click', function () {
-
+  submitBtn.addEventListener('click', function (event) {
     showForm();
+    event.preventDefault();
   });
 
 };
