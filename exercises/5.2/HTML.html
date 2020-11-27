@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let bodyNode = document.querySelector('body');
+      let titulo_h1 = document.createElement('h1');
+      titulo_h1.innerHTML = "Exercício 5.2 - JavaScript DOM";
+      bodyNode.appendChild(titulo_h1);
+
+      let createDiv = document.createElement('div');
+      createDiv.className = "main-content";
+      bodyNode.appendChild(createDiv);
+
+      let createDivCenter = document.createElement('div');
+      createDivCenter.className = "center-content";
+      let mainDivNode = document.querySelector('.main-content');
+      mainDivNode.appendChild(createDivCenter);
+
+      let createParagraph = document.createElement('p');
+      createParagraph.innerHTML = "Teste de paragrafo";
+      let centerDivNode = document.querySelector('.center-content');
+      centerDivNode.appendChild(createParagraph);
+
+      let createLeftContent = document.createElement('div');
+      createLeftContent.className = "left-content";
+      mainDivNode.appendChild(createLeftContent);
+
+      let createRightContent = document.createElement('div');
+      createRightContent.className = "right-content";
+      mainDivNode.appendChild(createRightContent);
+
+      let leftDivNode = document.querySelector('.left-content');
+      let image = document.createElement('img'); 
+      image.src = "https://picsum.photos/200";
+      image.className = "small-image";
+      leftDivNode.appendChild(image);
+
+      let rightDivNode = document.querySelector('.right-content');
+      let createUl = document.createElement('ul');
+      createUl.className = "lista-desordenada";
+      rightDivNode.appendChild(createUl);
+
+      let ulNode = document.querySelector('.lista-desordenada');
+
+      let numExtenso = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+
+      for (let j = 0; j < numExtenso.length; j += 1) {
+        let listItem = numExtenso[j];
+
+        let createListItem = document.createElement('li');
+        createListItem.innerHTML = listItem;
+
+        ulNode.appendChild(createListItem);
+      }
+     
+      for (let k = 1; k <= 3; k +=1) {
+        let createTitulo_h3 = document.createElement('h3');
+        mainDivNode.appendChild(createTitulo_h3);
+      }
+
+      document.querySelector('h1').className = 'title';
+      document.getElementsByTagName('h3').className = 'description';
+
+      mainDivNode.removeChild(leftDivNode);
+
+      rightDivNode.style.marginRight = 'auto';
+
+      let paiCenterContent = document.querySelector('.center-content').parentNode;
+      paiCenterContent.style.backgroundColor = 'green';
+
+      let removeLi = document.querySelectorAll('li');
+      for (let i = 0; i < removeLi.length; i += 1) {
+        if (i == removeLi.length - 1 || i == removeLi.length - 2) {
+          ulNode.removeChild(removeLi[i]);
+        }
+      }
+
+    </script>
+  </body>
+</html>
