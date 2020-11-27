@@ -25,7 +25,6 @@ function getChange(payable, paid) {
   return change;
 }
 
-
 let result = getChange(1, 1); // no change/coins just an empty array
 let expected = [];
 assert.deepStrictEqual(result, expected);
