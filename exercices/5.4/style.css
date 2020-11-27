@@ -1,0 +1,32 @@
+
+
+.main-content {
+  /* background-color: white; */
+  color: black;
+  font-size: medium;
+  line-height: normal;
+  font-family: monospace;
+  padding: 30px;
+  margin: 10px 60px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.settings {
+  font-size: small;
+}
+
+.settings input {
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 15px;
+}
+
+.restore-definitions {
+  margin: 20px;
+}
+.restore-definitions button {
+  margin-right: 15px;
+}
