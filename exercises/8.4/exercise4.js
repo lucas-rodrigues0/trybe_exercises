@@ -29,8 +29,8 @@ const people = [
 ]
 
 // escreva filterPeople abaixo
-const filterPeople = (people) => {
-  return people.filter(({ bornIn, nationality }) => (bornIn < 2001 && nationality === 'Australian'));
+const filterPeople = (person) => {
+  return person.filter(({ bornIn, nationality }) => (bornIn < 2001 && nationality === 'Australian'));
 }
 
 const filteredPeople = filterPeople(people);
