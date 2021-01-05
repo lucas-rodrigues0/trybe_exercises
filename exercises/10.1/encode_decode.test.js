@@ -1,5 +1,5 @@
-const encode = require('./refatoraPlaygroundFunc01').encode;
-const decode = require('./refatoraPlaygroundFunc01').decode;
+const encode = require('./encode_decode.js').encode;
+const decode = require('./encode_decode.js').decode;
 
 describe('Testa funçoes encode e decode', () => {
   it('Teste se encode e decode são funções', () => {
