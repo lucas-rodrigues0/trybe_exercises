@@ -23,5 +23,20 @@ describe('Test the randomNumber function', () => {
     expect(func.randomNumber).toHaveBeenCalledTimes(3);
     expect(func.randomNumber).toHaveBeenCalledWith(10, 2);
     expect(func.randomNumber(10, 2)).toBe(5);
-  })
+    expect(func.randomNumber).toHaveBeenCalledTimes(4);
+  });
+
+  it('should test the function with another two mocks implementation', () => {
+    func.randomNumber.mockImplementationOnce((a, b, c) => a * b * c);
+    expect(func.randomNumber(2, 5, 10)).toBe(100);
+    expect(func.randomNumber).toHaveBeenCalled();
+    expect(func.randomNumber).toHaveBeenCalledTimes(5);
+    expect(func.randomNumber).toHaveBeenCalledWith(2, 5, 10);
+
+    func.randomNumber.mockImplementationOnce(a => a * 2);
+    expect(func.randomNumber(10)).toBe(20);
+    expect(func.randomNumber).toHaveBeenCalled();
+    expect(func.randomNumber).toHaveBeenCalledTimes(6);
+    expect(func.randomNumber).toHaveBeenCalledWith(10);
+  });
 });
