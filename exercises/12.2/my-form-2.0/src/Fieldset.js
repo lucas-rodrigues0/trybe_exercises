@@ -4,6 +4,7 @@ import Name from './Name';
 import Email from './Email';
 import CPF from './CPF';
 import Address from './Address';
+import City from './City';
 
 class Fieldset extends React.Component {
   constructor(props) {
@@ -28,12 +29,21 @@ class Fieldset extends React.Component {
     }
 
     if(name === "address") {
-      value = value.replace(/[^\w\-]+/g, ' ');
+      value = value.replace(/[^A-Za-z0-9_]/g, ' ');
     }
-
+    
     this.setState({
       [name]: value
     })
+  }
+
+  verifyValue = ({ target }) => {
+    let exp = /[0-9]/;
+    if(exp.test(target.value)) {
+      this.setState({
+        city: "",
+      })
+    }
   }
 
   render() {
@@ -54,6 +64,11 @@ class Fieldset extends React.Component {
         <Address 
           handleInputChange={this.handleInputChange} 
           value={this.state.address}
+        />
+        <City
+          handleInputChange={this.handleInputChange}
+          verifyValue={this.verifyValue}
+          value={this.state.city}
         />
       </fieldset>
     );
