@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Name from './Name';
+import Email from './Email';
 
 class Fieldset extends React.Component {
   constructor(props) {
@@ -28,7 +29,8 @@ class Fieldset extends React.Component {
   render() {
     return (
       <fieldset>
-        <Name handleInputChange={this.handleInputChange} value={this.state.name} />
+        <Name handleInputChange={this.handleInputChange} value={this.state.name.toUpperCase()} />
+        <Email handleInputChange={this.handleInputChange} value={this.state.email} />
       </fieldset>
     );
   }
