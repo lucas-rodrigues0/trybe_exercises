@@ -5,6 +5,7 @@ import Email from './Email';
 import CPF from './CPF';
 import Address from './Address';
 import City from './City';
+import FederalStates from './FederalStates';
 
 class Fieldset extends React.Component {
   constructor(props) {
@@ -69,6 +70,10 @@ class Fieldset extends React.Component {
           handleInputChange={this.handleInputChange}
           verifyValue={this.verifyValue}
           value={this.state.city}
+        />
+        <FederalStates
+          handleInputChange={this.handleInputChange} 
+          value={this.state.federalstate}
         />
       </fieldset>
     );
