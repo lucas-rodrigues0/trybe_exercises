@@ -2,6 +2,8 @@ import React from 'react';
 
 import Name from './Name';
 import Email from './Email';
+import CPF from './CPF';
+import Address from './Address';
 
 class Fieldset extends React.Component {
   constructor(props) {
@@ -19,7 +21,15 @@ class Fieldset extends React.Component {
   }
 
   handleInputChange = ({ target }) => {
-    const { name, value } = target;
+    let { name, value } = target;
+
+    if(name === "name") {
+      value = value.toUpperCase();
+    }
+
+    if(name === "address") {
+      value = value.replace(/[^\w\-]+/g, ' ');
+    }
 
     this.setState({
       [name]: value
@@ -29,8 +39,22 @@ class Fieldset extends React.Component {
   render() {
     return (
       <fieldset>
-        <Name handleInputChange={this.handleInputChange} value={this.state.name.toUpperCase()} />
-        <Email handleInputChange={this.handleInputChange} value={this.state.email} />
+        <Name 
+          handleInputChange={this.handleInputChange} 
+          value={this.state.name}
+        />
+        <Email 
+          handleInputChange={this.handleInputChange} 
+          value={this.state.email}
+        />
+        <CPF 
+          handleInputChange={this.handleInputChange} 
+          value={this.state.cpf}
+        />
+        <Address 
+          handleInputChange={this.handleInputChange} 
+          value={this.state.address}
+        />
       </fieldset>
     );
   }

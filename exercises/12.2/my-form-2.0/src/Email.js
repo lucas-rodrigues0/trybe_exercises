@@ -9,7 +9,7 @@ class Email extends React.Component {
           type="text" 
           id="email" 
           name="email" 
-          placeholder="your email"
+          placeholder="insira seu email"
           maxLength="50"
           value={this.props.value}
           onChange={this.props.handleInputChange}
