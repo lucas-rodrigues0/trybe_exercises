@@ -6,6 +6,7 @@ import CPF from './CPF';
 import Address from './Address';
 import City from './City';
 import FederalStates from './FederalStates';
+import Housing from './Housing';
 
 class Fieldset extends React.Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class Fieldset extends React.Component {
   }
 
   handleInputChange = ({ target }) => {
-    let { name, value } = target;
+    let { name } = target;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
 
     if(name === "name") {
       value = value.toUpperCase();
@@ -31,6 +33,10 @@ class Fieldset extends React.Component {
 
     if(name === "address") {
       value = value.replace(/[^A-Za-z0-9_]/g, ' ');
+    }
+
+    if(name === "housing") {
+      value = target.id;
     }
     
     this.setState({
@@ -74,6 +80,9 @@ class Fieldset extends React.Component {
         <FederalStates
           handleInputChange={this.handleInputChange} 
           value={this.state.federalstate}
+        />
+        <Housing
+          handleInputChange={this.handleInputChange}
         />
       </fieldset>
     );
