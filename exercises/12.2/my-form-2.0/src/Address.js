@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Address extends React.Component {
   render() {
+    const { inputValue, handleInputChange } = this.props;
     return (
       <div>
         <label>
@@ -12,8 +14,8 @@ class Address extends React.Component {
             name="address" 
             placeholder="insira seu endereço"
             maxLength="200"
-            value={this.props.value}
-            onChange={this.props.handleInputChange}
+            value={ inputValue }
+            onChange={ handleInputChange }
             required
           />
         </label>
@@ -21,5 +23,14 @@ class Address extends React.Component {
     );
   }
 }
+
+Address.propTypes = {
+  inputValue: PropTypes.string,
+  handleInputChange: PropTypes.func.isRequired,
+};
+
+Address.defaultProps = {
+  inputValue: '',
+};
 
 export default Address;

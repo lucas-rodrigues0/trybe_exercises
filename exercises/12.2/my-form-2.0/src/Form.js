@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import FieldsetPersonalInfo from './FieldsetPersonalInfo';
 import FieldsetProfessionalInfo from './FieldsetProfessionalInfo';
@@ -9,7 +8,6 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      personal: {
         name: "",
         email: "",
         cpf: "",
@@ -17,46 +15,58 @@ class Form extends React.Component {
         city: "",
         federalstate: "",
         housing: "",
-      },
-      professional: {
         resume: '',
         role: '',
         roleDescriptions: '',
-      },
+      }
+    }
+
+  handleInputChange = ({ target }) => {
+    const { name } = target;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+
+    if(name === "name") {
+      value = value.toUpperCase();
+    }
+
+    if(name === "address") {
+      value = value.replace(/[^A-Za-z0-9_]/g, ' ');
+    }
+
+    if(name === "housing") {
+      value = target.id;
+    }
+    
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  verifyValue = ({ target }) => {
+    let exp = /[0-9]/;
+    if(exp.test(target.value)) {
+      this.setState({
+        [target.name]: "",
+      })
     }
   }
 
   render() {
-    const { personal, professional } = this.state;
+    const formState = this.state;
     return(
       <form>
-        <FieldsetPersonalInfo personal={ personal } />
-        <FieldsetProfessionalInfo professional={ professional }/>
+        <FieldsetPersonalInfo
+          formState={ formState }
+          handleInputChange={ this.handleInputChange }
+          verifyValue={ this.verifyValue }
+        />
+        <FieldsetProfessionalInfo
+          formState={ formState }
+          handleInputChange={ this.handleInputChange }
+        />
       </form>
     );
   }
-}
-
-Form.propTypes = {
-  personal: PropTypes.objectOf(PropTypes.string),
-  professional: PropTypes.objectOf(PropTypes.string),
-};
-
-Form.defaultProps = {
-  personal: {
-    name: "",
-    email: "",
-    cpf: "",
-    address: "",
-    city: "",
-    federalstate: "",
-    housing: "",
-  },
-  professional: {
-    resume: '',
-    role: '',
-    roleDescriptions: '',
-  },
 }
 
 export default Form;

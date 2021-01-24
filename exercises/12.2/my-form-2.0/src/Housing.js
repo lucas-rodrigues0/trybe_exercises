@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Housing extends React.Component {
   render() {
+    const { handleInputChange } = this.props;
     return (
       <div>
         <label>
@@ -11,7 +13,7 @@ class Housing extends React.Component {
               type="radio" 
               id="casa" 
               name="housing" 
-              onChange={this.props.handleInputChange}
+              onChange={ handleInputChange }
               checked
             />
             Casa
@@ -21,7 +23,7 @@ class Housing extends React.Component {
               type="radio" 
               id="apartamento" 
               name="housing" 
-              onChange={this.props.handleInputChange}
+              onChange={ handleInputChange }
             />
             Apartamento
           </label>
@@ -30,5 +32,9 @@ class Housing extends React.Component {
     );
   }
 }
+
+Housing.propTypes = {
+  handleInputChange: PropTypes.func.isRequired,
+};
 
 export default Housing;

@@ -10,80 +10,38 @@ import FederalStates from './FederalStates';
 import Housing from './Housing';
 
 class FieldsetPersonalInfo extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: "",
-      email: "",
-      cpf: "",
-      address: "",
-      city: "",
-      federalstate: "",
-      housing: "",
-    }
-  }
-
-  handleInputChange = ({ target }) => {
-    let { name } = target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-
-    if(name === "name") {
-      value = value.toUpperCase();
-    }
-
-    if(name === "address") {
-      value = value.replace(/[^A-Za-z0-9_]/g, ' ');
-    }
-
-    if(name === "housing") {
-      value = target.id;
-    }
-    
-    this.setState({
-      [name]: value
-    })
-  }
-
-  verifyValue = ({ target }) => {
-    let exp = /[0-9]/;
-    if(exp.test(target.value)) {
-      this.setState({
-        city: "",
-      })
-    }
-  }
-
   render() {
+    const { formState, handleInputChange, verifyValue } = this.props;
+
     return (
       <fieldset>
         <Name 
-          handleInputChange={this.handleInputChange} 
-          value={this.state.name}
+          handleInputChange={ handleInputChange } 
+          inputValue={ formState.name }
         />
         <Email 
-          handleInputChange={this.handleInputChange} 
-          value={this.state.email}
+          handleInputChange={ handleInputChange } 
+          inputValue={ formState.email }
         />
         <CPF 
-          handleInputChange={this.handleInputChange} 
-          value={this.state.cpf}
+          handleInputChange={ handleInputChange } 
+          inputValue={ formState.cpf }
         />
         <Address 
-          handleInputChange={this.handleInputChange} 
-          value={this.state.address}
+          handleInputChange={ handleInputChange } 
+          inputValue={ formState.address }
         />
         <City
-          handleInputChange={this.handleInputChange}
-          verifyValue={this.verifyValue}
-          value={this.state.city}
+          handleInputChange={ handleInputChange }
+          verifyValue={ verifyValue }
+          inputValue={ formState.city }
         />
         <FederalStates
-          handleInputChange={this.handleInputChange} 
-          value={this.state.federalstate}
+          handleInputChange={ handleInputChange } 
+          inputValue={ formState.federalstate }
         />
         <Housing
-          handleInputChange={this.handleInputChange}
+          handleInputChange={ handleInputChange }
         />
       </fieldset>
     );
@@ -91,23 +49,25 @@ class FieldsetPersonalInfo extends React.Component {
 }
 
 FieldsetPersonalInfo.propTypes = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  cpf: PropTypes.string,
-  address: PropTypes.string,
-  city: PropTypes.string,
-  federalstate: PropTypes.string,
-  housing: PropTypes.string, 
+  formState: PropTypes.objectOf(PropTypes.string),
+  handleInputChange: PropTypes.func.isRequired,
+  verifyValue: PropTypes.func.isRequired,
 };
 
 FieldsetPersonalInfo.defaultProps = {
-  name: "",
-  email: "",
-  cpf: "",
-  address: "",
-  city: "",
-  federalstate: "",
-  housing: "",
+  formState: {
+    name: "",
+    email: "",
+    cpf: "",
+    address: "",
+    city: "",
+    federalstate: "",
+    housing: "",
+    resume: '',
+    role: '',
+    roleDescriptions: '',
+  }
 };
+
 
 export default FieldsetPersonalInfo;

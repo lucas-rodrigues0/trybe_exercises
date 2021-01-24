@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class RoleDescriptions extends React.Component {
   render() {
-    const { value, handleProfInputChange } = this.props;
+    const { inputValue, handleInputChange } = this.props;
     return (
       <div>
         <label>
@@ -11,8 +11,8 @@ class RoleDescriptions extends React.Component {
           <textarea
             id="roleDescriptions"
             name="roleDescriptions"
-            value={ value }
-            onChange={ handleProfInputChange }
+            value={ inputValue }
+            onChange={ handleInputChange }
             maxLength="500"
           />
         </label>
@@ -22,8 +22,8 @@ class RoleDescriptions extends React.Component {
 }
 
 RoleDescriptions.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleProfInputChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 export default RoleDescriptions;

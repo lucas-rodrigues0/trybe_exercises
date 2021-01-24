@@ -6,47 +6,45 @@ import Role from './Role';
 import RoleDescriptions from './RoleDescriptions';
 
 class FieldsetProfessionalInfo extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      resume: '',
-      role: '',
-      roleDescriptions: '',
-    }
-  }
-
-  handleProfInputChange = ({ target }) => {
-    const { name, value } = target;
- 
-    this.setState({
-      [name]: value
-    })
-  }
-
   render() {
-    const { resume, role, roleDescriptions } = this.state;
+    const { formState, handleInputChange } = this.props;
     return (
       <fieldset>
-        <Resume value={ resume } handleProfInputChange={ this.handleProfInputChange }/>
-        <Role value={ role } handleProfInputChange={ this.handleProfInputChange } />
-        <RoleDescriptions value={ roleDescriptions } handleProfInputChange={ this.handleProfInputChange } />
-
+        <Resume
+          inputValue={ formState.resume }
+          handleInputChange={ handleInputChange }
+        />
+        <Role
+          inputValue={ formState.role }
+          handleInputChange={ handleInputChange }
+        />
+        <RoleDescriptions
+          inputValue={ formState.roleDescriptions }
+          handleInputChange={ handleInputChange }
+        />
       </fieldset>
     );
   }
 }
 
 FieldsetProfessionalInfo.propTypes = {
-  resume: PropTypes.string,
-  role: PropTypes.string,
-  roleDescriptions: PropTypes.string,
+  formState: PropTypes.objectOf(PropTypes.string),
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 FieldsetProfessionalInfo.defaultProps = {
-  resume: '',
-  role: '',
-  roleDescriptions: '',
+  formState: {
+    name: "",
+    email: "",
+    cpf: "",
+    address: "",
+    city: "",
+    federalstate: "",
+    housing: "",
+    resume: '',
+    role: '',
+    roleDescriptions: '',
+  }
 };
 
 export default FieldsetProfessionalInfo;

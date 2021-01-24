@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Resume extends React.Component {
   render() {
-    const { value, handleProfInputChange } = this.props;
+    const { inputValue, handleInputChange } = this.props;
     return (
       <div>
         <label>
@@ -11,8 +11,8 @@ class Resume extends React.Component {
           <textarea
             id="resume"
             name="resume"
-            value={ value }
-            onChange={ handleProfInputChange }
+            value={ inputValue }
+            onChange={ handleInputChange }
             maxLength="1000"
           />
         </label>
@@ -22,8 +22,8 @@ class Resume extends React.Component {
 }
 
 Resume.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleProfInputChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 export default Resume;

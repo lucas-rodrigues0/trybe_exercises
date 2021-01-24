@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Role extends React.Component {
   render() {
-    const { value, handleProfInputChange } = this.props;
+    const { inputValue, handleInputChange } = this.props;
     return (
       <div>
         <label>
@@ -12,8 +12,8 @@ class Role extends React.Component {
             type="text"
             id="role"
             name="role"
-            value={ value }
-            onChange={ handleProfInputChange }
+            value={ inputValue }
+            onChange={ handleInputChange }
             maxLength="40"
           />
         </label>
@@ -23,8 +23,8 @@ class Role extends React.Component {
 }
 
 Role.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleProfInputChange: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
 };
 
 export default Role;
