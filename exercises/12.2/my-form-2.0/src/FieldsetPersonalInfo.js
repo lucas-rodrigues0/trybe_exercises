@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Name from './Name';
 import Email from './Email';
@@ -8,7 +9,7 @@ import City from './City';
 import FederalStates from './FederalStates';
 import Housing from './Housing';
 
-class Fieldset extends React.Component {
+class FieldsetPersonalInfo extends React.Component {
   constructor(props) {
     super(props);
 
@@ -89,4 +90,24 @@ class Fieldset extends React.Component {
   }
 }
 
-export default Fieldset;
+FieldsetPersonalInfo.propTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  cpf: PropTypes.string,
+  address: PropTypes.string,
+  city: PropTypes.string,
+  federalstate: PropTypes.string,
+  housing: PropTypes.string, 
+};
+
+FieldsetPersonalInfo.defaultProps = {
+  name: "",
+  email: "",
+  cpf: "",
+  address: "",
+  city: "",
+  federalstate: "",
+  housing: "",
+};
+
+export default FieldsetPersonalInfo;

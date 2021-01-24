@@ -6,17 +6,19 @@ class FederalStates extends React.Component {
   render() {
     return (
       <div>
-        <label>UF:</label>
-        <select 
-          name="federalstate"
-          id="federalstate"
-          onChange={this.props.handleInputChange}
-          required
-        >
-          {UF.map(option => {
-            return <option key={option} value={option}>{option}</option>;
-          })}          
-        </select>
+        <label>
+          UF:
+          <select 
+            name="federalstate"
+            id="federalstate"
+            onChange={this.props.handleInputChange}
+            required
+          >
+            {UF.map(option => {
+              return <option key={option} value={option}>{option}</option>;
+            })}          
+          </select>
+        </label>
       </div>
     );
   }

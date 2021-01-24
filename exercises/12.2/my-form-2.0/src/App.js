@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
 
-import Fieldset from './Fieldset';
+import Form from './Form';
 
-function App() {
-  return (
-    <div className="App">
-      <Fieldset />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Form />
+      </div>
+    );
+  }
 }
 
 export default App;
