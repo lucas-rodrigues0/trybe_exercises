@@ -28,19 +28,16 @@ class FieldsetProfessionalInfo extends React.Component {
 }
 
 FieldsetProfessionalInfo.propTypes = {
-  formState: PropTypes.objectOf(PropTypes.string),
+  formState: PropTypes.shape({
+    resume: PropTypes.string,
+    role: PropTypes.string,
+    roleDescriptions: PropTypes.string,
+  }),
   handleInputChange: PropTypes.func.isRequired,
 };
 
 FieldsetProfessionalInfo.defaultProps = {
   formState: {
-    name: "",
-    email: "",
-    cpf: "",
-    address: "",
-    city: "",
-    federalstate: "",
-    housing: "",
     resume: '',
     role: '',
     roleDescriptions: '',

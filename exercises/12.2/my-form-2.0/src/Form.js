@@ -2,6 +2,9 @@ import React from 'react';
 
 import FieldsetPersonalInfo from './FieldsetPersonalInfo';
 import FieldsetProfessionalInfo from './FieldsetProfessionalInfo';
+import ConfirmButton from './ConfirmButton';
+import ResetButton from './ResetButton';
+import PrintedConfirmation from './PrintedConfirmation';
 
 class Form extends React.Component {
   constructor(props) {
@@ -18,6 +21,7 @@ class Form extends React.Component {
         resume: '',
         role: '',
         roleDescriptions: '',
+        confirmation: false,
       }
     }
 
@@ -51,8 +55,37 @@ class Form extends React.Component {
     }
   }
 
+  confirmationStatus = () => {
+    if (this.state.confirmation === false) {
+      this.setState({ confirmation: true })
+    }
+  }
+
+  resetStatus = () => {
+    this.setState({
+      name: "",
+      email: "",
+      cpf: "",
+      address: "",
+      city: "",
+      federalstate: "",
+      housing: "",
+      resume: '',
+      role: '',
+      roleDescriptions: '',
+      confirmation: false,
+    })
+  }
+
   render() {
     const formState = this.state;
+    let printInfo;
+    if (this.state.confirmation) {
+      printInfo = <PrintedConfirmation formState={ formState } />
+    } else {
+      printInfo = <div />
+    }
+
     return(
       <form>
         <FieldsetPersonalInfo
@@ -64,6 +97,14 @@ class Form extends React.Component {
           formState={ formState }
           handleInputChange={ this.handleInputChange }
         />
+        <ConfirmButton
+          confirmationStatus={ this.confirmationStatus }
+        />
+        <ResetButton
+          resetStatus={ this.resetStatus }
+        />
+        { printInfo }
+        
       </form>
     );
   }

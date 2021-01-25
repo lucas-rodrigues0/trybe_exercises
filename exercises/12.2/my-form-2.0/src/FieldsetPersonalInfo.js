@@ -49,7 +49,15 @@ class FieldsetPersonalInfo extends React.Component {
 }
 
 FieldsetPersonalInfo.propTypes = {
-  formState: PropTypes.objectOf(PropTypes.string),
+  formState: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    cpf: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    federalstate: PropTypes.string,
+    housing: PropTypes.string,
+  }),
   handleInputChange: PropTypes.func.isRequired,
   verifyValue: PropTypes.func.isRequired,
 };
@@ -63,9 +71,6 @@ FieldsetPersonalInfo.defaultProps = {
     city: "",
     federalstate: "",
     housing: "",
-    resume: '',
-    role: '',
-    roleDescriptions: '',
   }
 };
 

@@ -5,7 +5,7 @@ const UF =  ['(AC)-Acre', '(AL)-Alagoas', '(AP)-Amapá', '(AM)-Amazonas', '(BA)-
 
 class FederalStates extends React.Component {
   render() {
-    const { handleInputChange } = this.props;
+    const { handleInputChange, inputValue } = this.props;
     return (
       <div>
         <label>
@@ -13,9 +13,11 @@ class FederalStates extends React.Component {
           <select 
             name="federalstate"
             id="federalstate"
+            value={ inputValue }
             onChange={ handleInputChange }
             required
           >
+            <option key="choose" value="">Escolha aqui</option>
             {UF.map(option => {
               return <option key={ option } value={ option }>{ option }</option>;
             })}          
