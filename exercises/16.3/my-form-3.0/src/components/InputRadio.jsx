@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import addPersonalInfo from '../actions/inputAction';
+import addPersonalInfo from '../actions/inputPersonalAction';
 
 class InputText extends Component {
   constructor(props) {

@@ -23,11 +23,12 @@ export default function formReducer(state = INITIAL_STATE, action) {
 
       return {
         ...state,
-        personalInfo: Object.assign({}, state.personalInfo, action.payload.personalInfo,)
+        personalInfo: Object.assign({}, state.personalInfo, action.payload.personalInfo)
       }
     case ADD_PROFESSION_INFO:
       return {
         ...state,
+        professionalInfo: Object.assign({}, state.professionalInfo, action.payload.professionalInfo)
       }
     default:
       return state;
