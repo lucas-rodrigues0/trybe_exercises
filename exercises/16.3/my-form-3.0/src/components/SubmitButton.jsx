@@ -6,7 +6,7 @@ class SubmitButton extends Component {
   render() {
     const { handleClick } = this.props;
     return (
-      <button type="button" onClick={ handleClick }>Enviar</button>
+      <button type="button" onClick={ handleClick } className="btn">Enviar</button>
     );
   }
 }

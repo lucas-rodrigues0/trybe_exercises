@@ -5,6 +5,21 @@ import addPersonalInfo from '../actions/inputPersonalAction';
 const UF = [ '(AC)-Acre', '(AL)-Alagoas', '(AP)-Amapá', '(AM)-Amazonas', '(BA)-Bahia', '(CE)-Ceará', '(DF)-Distrito Federal', '(ES)-Espírito Santo', '(GO)-Goiás', '(MA)-Maranhão', '(MT)-Mato Grosso', '(MS)-Mato Grosso do Sul', '(MG)-Minas Gerais', '(PA)-Pará', '(PB)-Paraíba', '(PR)-Paraná', '(PE)-Pernambuco', '(PI)-Piauí', '(RJ)-Rio de Janeiro', '(RN)-Rio Grande do Norte', '(RS)-Rio Grande do Sul', '(RO)-Rondônia', '(RR)-Roraima', '(SC)-Santa Catarina', '(SP)-São Paulo', '(SE)-Sergipe', '(TO)-Tocantins' ];
 
 class InputCombobox extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { personalInfo, id } = this.props;
+    if (prevProps.personalInfo !== personalInfo) {
+      this.handleValue(id);
+    }
+  }
+
   handleChange = ({ target }) => {
     const { name, value } = target;
     const { addInfo } = this.props;
@@ -15,22 +30,26 @@ class InputCombobox extends Component {
     const { personalInfo } = this.props;
     Object.keys(personalInfo).forEach(key => {
       if (key === id) {
-        return personalInfo[ key ];
+        this.setState({
+          value: personalInfo[ key ],
+        });
       }
     })
   }
 
   render() {
     const { children, id } = this.props;
+    const { value } = this.state;
 
     return (
-      <label>
+      <label className="label-container">
         { children }
         <select
           name={ id }
-          value={ this.handleValue(id) }
+          value={ value }
           onChange={ (event) => this.handleChange(event) }
           required
+          className="select-container"
         >
           <option key="choose" value="">Escolha aqui</option>
           { UF.map(option => {

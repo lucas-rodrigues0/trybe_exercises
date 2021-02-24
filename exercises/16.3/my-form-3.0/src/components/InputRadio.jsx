@@ -7,7 +7,14 @@ class InputText extends Component {
     super(props);
 
     this.state = {
-      selectedOption: 'casa',
+      value: '',
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { personalInfo } = this.props;
+    if (prevProps.personalInfo !== personalInfo) {
+      this.handleValue();
     }
   }
 
@@ -18,30 +25,41 @@ class InputText extends Component {
     addInfo(name, id);
   }
 
+  handleValue = () => {
+    const { selectedOption } = this.props;
+    this.setState({
+      value: selectedOption,
+    })
+  }
+
   render() {
     const { children, id } = this.props;
 
     return (
-      <label>
+      <label className="label-container">
         { children }
-        <label htmlFor="casa">
+        <label htmlFor="casa" className="label-option">
           <input
             type="radio"
             id="casa"
             name={ id }
             onChange={(event) => this.handleChange(event) }
-            checked={ this.state.selectedOption === "casa" }
+            checked={ this.state.value === "casa" }
+            className="input-radio"
           />
+          <span className="checkmark"></span>
             Casa
           </label>
-        <label htmlFor="apartamento">
+        <label htmlFor="apartamento" className="label-option">
           <input
             type="radio"
             id="apartamento"
             name={ id }
             onChange={ (event) => this.handleChange(event) }
-            checked={ this.state.selectedOption === "apartamento" }
+            checked={ this.state.value === "apartamento" }
+            className="input-radio"
           />
+          <span className="checkmark"></span>
             Apartamento
           </label>
       </label>
@@ -49,8 +67,13 @@ class InputText extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  personalInfo: state.form.personalInfo,
+  selectedOption: state.form.personalInfo.habitation,
+})
+
 const mapDispatchToProps = (dispatch) => ({
   addInfo: (name, value) => dispatch(addPersonalInfo(name, value)),
 })
 
-export default connect(null, mapDispatchToProps)(InputText);
+export default connect(mapStateToProps, mapDispatchToProps)(InputText);

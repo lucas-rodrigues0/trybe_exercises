@@ -6,7 +6,7 @@ class ClearButton extends Component {
   render() {
     const { clearForm } = this.props;
     return (
-      <button type="button" onClick={ clearForm }>Apagar</button>
+      <button type="button" onClick={ clearForm } className="btn">Apagar</button>
     );
   }
 }

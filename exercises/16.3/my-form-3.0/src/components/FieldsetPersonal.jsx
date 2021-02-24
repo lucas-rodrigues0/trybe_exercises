@@ -6,7 +6,8 @@ import InputText from './InputText';
 class FieldsetPersonal extends Component {
   render() {
     return (
-      <fieldset>
+      <fieldset className="fieldset-container">
+        <legend className="legend-container">Dados Pessoais</legend>
         <InputText id="name" maxLength="40">Nome:</InputText>
         <InputText id="email" maxLength="50">Email:</InputText>
         <InputText id="cpf" maxLength="11">CPF:</InputText>

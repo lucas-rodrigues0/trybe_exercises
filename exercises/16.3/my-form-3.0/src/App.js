@@ -7,15 +7,20 @@ import SubmitButton from './components/SubmitButton';
 import SubmittedForm from './components/SubmittedForm';
 import ClearButton from './components/ClearButton';
 
+import './App.css';
+
 export default class App extends Component {
   render() {
     return (
       <Provider store={ store }>
-        <main>
+        <main className="main-container">
+          <h1 className="main-title">Formulário em React / Redux</h1>
           <FieldsetPersonal />
           <FieldsetProfessional />
-          <SubmitButton />
-          <ClearButton />
+          <div className="btn-container">
+            <SubmitButton />
+            <ClearButton />
+          </div>
           <SubmittedForm />
         </main>
       </Provider>
