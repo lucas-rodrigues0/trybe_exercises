@@ -5,6 +5,7 @@ import FieldsetPersonal from './components/FieldsetPersonal';
 import FieldsetProfessional from './components/FieldsetProfessional';
 import SubmitButton from './components/SubmitButton';
 import SubmittedForm from './components/SubmittedForm';
+import ClearButton from './components/ClearButton';
 
 export default class App extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class App extends Component {
           <FieldsetPersonal />
           <FieldsetProfessional />
           <SubmitButton />
+          <ClearButton />
           <SubmittedForm />
         </main>
       </Provider>

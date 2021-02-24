@@ -1,6 +1,6 @@
 import { ADD_PERSONAL_INFO, ADD_PROFESSION_INFO } from '../actions/index';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   personalInfo: {
     name: '',
     email: '',
