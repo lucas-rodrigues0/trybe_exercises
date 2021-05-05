@@ -1,0 +1,78 @@
+use("class");
+
+// db.xmen.find();
+
+// exercicio 14:
+
+db.xmen.updateMany(
+  { class: "unknown" },
+  {
+    $unset: { class: "" },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+// exercicio 15:
+
+db.xmen.updateMany(
+  {},
+  {
+    $rename: { name: "hero_name", true_name: "full_name" },
+    $set: { power: 100 },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+// exercicio 16:
+
+db.xmen.updateMany(
+  { class: { $in: ["omega", "gama"] } },
+  {
+    $max: { power: 500 },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+
+// exercicio 17:
+
+db.xmen.updateMany(
+  { class: "gama" },
+  {
+    $min: { power: 300 },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+// exercicio 18:
+
+db.xmen.updateMany(
+  { class: { $exists: false } },
+  {
+    $inc: { power: -100 },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+// exercicio 19:
+
+db.xmen.updateMany(
+  { $or: [
+    { $and: [{ occupation: "Senior Staff" }, { power: { $gt: 100 } }] },
+    { $and: [{ occupation: "Junior Staff" }, { power: { $gt: 200 } }] }
+  ]},
+  {
+    $set: { area: ["Students Room"] },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
+
+// exercicio 20:
+
+db.xmen.updateMany(
+  { $and: [{ areas: { $exists: false } }, { occupation: "Junior Staff" }] },
+  {
+    $set: { areas: ["Outside"] },
+    $currentDate: { lastUpdate: { $type: "timestamp" } }
+  }
+);
