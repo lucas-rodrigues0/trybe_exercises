@@ -24,33 +24,33 @@ Nesse módulo é abordado os fundamentos para o desenvolvimento Web, preparando 
 
 ## Módulo "Desenvolvimento Front-end"
 
-<<< concluído >>>
+                  <<< concluído >>>
 
 Neste módulo, é abordado as técnicas e ferramentas mais atuais para desenvolver um código de front-end que seja rápido, estético e testável.
 
 
 - [x] Bloco 11: Introdução à React
 - [x] Bloco 12: Componentes com Estado, Eventos e Formulários com React
-- [ ] Bloco 13: Ciclo de Vida de Componentes e React Router
-- [ ] Bloco 14: Metodologias Ágeis
-- [ ] Bloco 15: Testes automatizados com React Testing Library
-- [ ] Bloco 16: Gerenciamento de estado com Redux
-- [ ] Bloco 17: Projeto Jogo de Trivia
-- [ ] Bloco 18: Context API e React Hooks
-- [ ] Bloco 19: Projeto App de Receitas
+- [X] Bloco 13: Ciclo de Vida de Componentes e React Router
+- [X] Bloco 14: Metodologias Ágeis
+- [X] Bloco 15: Testes automatizados com React Testing Library
+- [X] Bloco 16: Gerenciamento de estado com Redux
+- [X] Bloco 17: Projeto Jogo de Trivia
+- [X] Bloco 18: Context API e React Hooks
+- [X] Bloco 19: Projeto App de Receitas
 
 
 ## Módulo "Desenvolvimento Back-end"
 
-em progresso >>
+                  em progresso >>
 
 Neste módulo, é abordado o aprendizado de como desenvolver um código de back-end robusto, limpo, escalável e seguro, dominando o uso de bancos de dados, a construção de APIs com testes automatizados.
 
 
-- [ ] Bloco 20: Introdução à SQL
-- [ ] Bloco 21: Funções SQL, Joins e Subqueries
-- [ ] Bloco 22: Normalização e Modelagem de Banco de Dados
-- [ ] Bloco 23: Introdução ao MongoDB
+- [X] Bloco 20: Introdução à SQL
+- [X] Bloco 21: Funções SQL, Joins e Subqueries
+- [X] Bloco 22: Normalização e Modelagem de Banco de Dados
+- [X] Bloco 23: Introdução ao MongoDB
 - [ ] Bloco 24: MongoDB: Updates Simples e Complexos
 - [ ] Bloco 25: MongoDB: Aggregation Framework
 - [ ] Bloco 26: Introdução ao desenvolvimento Web com NodeJS
@@ -65,7 +65,7 @@ Neste módulo, é abordado o aprendizado de como desenvolver um código de back-
 
 ## Módulo "Ciência da Computação"
 
-próximo >>
+                  próximo >>
 
 Neste módulo, é abordado os principais conceitos da Ciência da Computação que são aplicados no dia a dia do desenvolvomento de software e como transformar a teoria em prática, analisando algoritmos e escolhendo as melhores estruturas de dados para resolver os problemas!
 
