@@ -1,0 +1,159 @@
+use("class");
+
+// db.movies.find();
+
+// exercicio 01:
+
+db.movies.find(
+  { category: { $all: ["action", "adventure"] } },
+);
+
+// exercicio 02:
+
+db.movies.find(
+  { category: "action", imdbRating: { $gt: 7 } },
+);
+
+// exercicio 03:
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: { rating: { $each: [85, 100, 102, 105] } }},
+  { upsert: true },
+);
+
+// exercicio 04:
+
+db.movies.updateOne(
+  { title: "Godzilla" },
+  { $push: { rating: { $each: [78, 52, 95, 102] } }},
+  { upsert: true },
+);
+
+// exercicio 05:
+
+db.movies.updateOne(
+  { title: "Home Alone" },
+  { $push: { rating: { $each: [200, 99, 65] } }},
+  { upsert: true },
+);
+
+// exercicio 06:
+
+db.movies.find(
+  { rating: { $elemMatch: { $gt: 103 } } },
+  { title: 1, rating: 1, _id: 0 },
+);
+
+// exercicio 07:
+
+db.movies.find(
+  { rating: { $elemMatch: { $gte: 100, $lte: 105 } } },
+  { title: 1, rating: 1, _id: 0 },
+);
+
+// exercicio 08:
+
+db.movies.find(
+  { rating: { $elemMatch: { $gte: 64, $lt: 105, $mod: [9, 0] } } },
+  { title: 1, rating: 1, _id: 0 },
+);
+
+// exercicio 09:
+
+db.movies.find(
+  { category: "adventure", rating: { $elemMatch: { $gt: 103 } } },
+  { title: 1, rating: 1, category: 1, _id: 0 },
+);
+
+// exercicio 10:
+
+db.movies.find(
+  { category: { $size: 2 } },
+  { title: 1, _id: 0 },
+);
+
+// exercicio 11:
+
+db.movies.find(
+  { rating: { $size: 4 } },
+  { title: 1, _id: 0 },
+);
+
+// exercicio 12:
+
+db.movies.find(
+  { budget: { $mod: [5, 0] }, category: { $size: 2 } },
+);
+
+// exercicio 13:
+
+db.movies.find(
+  { $or: [{ category: "sci-fi" }, { rating: { $elemMatch: { $gt: 199 } } }] },
+  { title: 1, rating: 1, category: 1, _id: 0 },
+);
+
+// exercicio 14:
+
+db.movies.find(
+  {
+    rating: { $size: 4 },
+    category: { $elemMatch: { $in: ["adventure", "family"] } },
+    imdbRating: { $not: { $lt: 7 } },
+  }
+);
+
+// exercicio 15:
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { description: "The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker."} },
+);
+
+// exercicio 16:
+
+db.movies.updateOne(
+  { title: "Godzilla" },
+  { $set: { description: "The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity."} },
+);
+
+// exercicio 17:
+
+db.movies.updateOne(
+  { title: "Home Alone" },
+  { $set: { description: "An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation." } },
+);
+
+// exercicio 18:
+
+db.movies.find(
+  { description: { $regex: /^the/, $options: 'mi' } },
+);
+
+// // exercicio 19:
+
+db.movies.find(
+  { description: { $regex: /humanity/, $options: 'mi' } },
+);
+
+// exercicio 20:
+
+db.movies.createIndex({ description: "text" });
+
+// exercicio 21:
+
+db.movies.find(
+  { $text: { $search: "vacation" } },
+);
+
+// exercicio 22:
+
+db.movies.find(
+  { $text: { $search: "monstrous criminal" } },
+);
+
+// exercicio 23:
+
+db.movies.find(
+  { $text: { $search: "\"when he is accidentally\"" } },
+);
