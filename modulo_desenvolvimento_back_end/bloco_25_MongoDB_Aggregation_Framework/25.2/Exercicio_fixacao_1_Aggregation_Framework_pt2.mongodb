@@ -1,0 +1,52 @@
+use("agg_example");
+
+// exercicio 01:
+
+// db.clients.aggregate(
+//   [
+//     {
+//       $lookup: {
+//         from: "transactions",
+//         localField: "name",
+//         foreignField: "from",
+//         as: "transactions"
+//       },
+//     },
+//   ]
+// );
+
+// exercicio 02:
+
+// db.clients.aggregate(
+//   [
+//     {
+//       $match: { name: { $in: ["Homer Simpson", "Lisa Simpson", "Edna Krabappel", "Ned Flanders"] } }
+//     },
+//     {
+//       $lookup: {
+//         from: "transactions",
+//         localField: "name",
+//         foreignField: "from",
+//         as: "transactions"
+//       },
+//     },
+//   ]
+// );
+
+// exercicio 03:
+
+// db.clients.aggregate(
+//   [
+//     {
+//       $match: { State: "Florida" }
+//     },
+//     {
+//       $lookup: {
+//         from: "transactions",
+//         localField: "name",
+//         foreignField: "from",
+//         as: "transactions"
+//       },
+//     },
+//   ]
+// );

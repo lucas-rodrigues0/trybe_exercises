@@ -1,0 +1,142 @@
+use("agg_example");
+
+// db.transactions.find();
+
+// db.clients.find();
+
+
+// exercicio fixação 01:
+
+db.transactions.aggregate(
+  [
+    { $match: { from: "Dave America" } },
+  ]
+);
+
+// exercicio fixação 02:
+
+db.transactions.aggregate(
+  [
+    {
+      $match: {
+        $or: [
+          { value: { $gt: 700, $lt: 6000 } },
+          { to: "Lisa Simpson" },
+        ]
+      }
+    },
+  ]
+);
+
+// exercicio fixação 03:
+
+db.transactions.aggregate(
+  [
+    {
+      $match: { value: { $gt: 1000 } },
+    },
+    {
+      $limit: 3
+    },
+  ]
+);
+
+// exercicio fixação 04:
+
+db.transactions.aggregate(
+  [
+    {
+      $group: { _id: null, count: { $sum: 1 } }
+    }
+  ]
+);
+
+// exercicio fixação 05:
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+        totalValue: { $sum: "$value" },
+        count: { $sum: 1 },
+      }
+    }
+  ]
+);
+
+// exercicio fixação 06:
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: null,
+        totalValue: { $sum: "$value" },
+      }
+    }
+  ]
+);
+
+// exercicio fixação 07:
+
+db.transactions.aggregate(
+  [
+    {
+      $group: {
+        _id: "$bank",
+        totalValue: { $sum: "$value" },
+      }
+    },
+    {
+      $match: { totalValue: { $gt: 1000 } },
+    }
+  ]
+);
+
+// exercicio fixação 08:
+
+db.clients.aggregate(
+  [
+    { $lookup:
+      {
+        from: "transactions",
+        localField: "name",
+        foreignField: "from",
+        as: "client_transactions"
+      }
+    }
+  ]
+);
+
+// exercicio fixação 09:
+
+db.clients.aggregate(
+  [
+    { $lookup:
+      {
+        from: "transactions",
+        localField: "name",
+        foreignField: "to",
+        as: "transactions_received"
+      }
+    },
+    { $limit: 4 },
+  ]
+);
+
+// exercicio fixação 10:
+
+db.clients.aggregate(
+  [
+    { $match: { State: "Florida" } },
+    { $lookup:
+      {
+        from: "transactions",
+        localField: "name",
+        foreignField: "to",
+        as: "transactions_received"
+      }
+    },
+  ]
+);

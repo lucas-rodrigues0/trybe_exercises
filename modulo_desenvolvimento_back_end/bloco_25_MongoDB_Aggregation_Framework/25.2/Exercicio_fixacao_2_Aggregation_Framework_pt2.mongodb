@@ -1,0 +1,119 @@
+use("storage");
+
+// exercicio 01:
+
+db.products.aggregate([
+  { $project: { name: 1, total_cost: { $add: ["$purchase_price", "$taxes"] } } }
+]);
+
+// exercicio 02:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      total_income: {
+        $subtract: [
+          "$sale_price",
+          { $add: ["$purchase_price", "$taxes"] },
+        ],
+      },
+    },
+  },
+]);
+
+// exercicio 03:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      floor_sale_price: {
+        $floor: "$sale_price"
+      },
+    },
+  },
+]);
+
+// exercicio 04:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      ceil_total_income: {
+        $ceil: {
+          $subtract: [
+            "$sale_price",
+            { $add: ["$purchase_price", "$taxes"] },
+          ],
+        },
+      }
+    },
+  },
+]);
+
+// exercicio 05:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      ceil_total_income: {
+        $abs: {
+          $subtract: [
+            "$sale_price",
+            { $add: ["$purchase_price", "$taxes"] },
+          ],
+        },
+      }
+    },
+  },
+]);
+
+// exercicio 06:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      total_sale: {
+        $multiply: ["$sale_price", "$quantity"],
+      },
+    },
+  },
+]);
+
+// exercicio 07:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      total_income: {
+        $multiply: [
+          { $subtract: ["$sale_price", { $add: ["$purchase_price", "$taxes"] }]},
+          "$quantity",
+        ],
+      },
+    },
+  },
+]);
+
+// exercicio 08:
+
+db.products.aggregate([
+  { $project: {
+      name: 1,
+      discount_price: {
+        $divide: ["$sale_price", 2],
+      },
+    },
+  },
+]);
+
+// exercicio 09:
+
+db.products.aggregate([
+  {
+  $addFields: {
+      total_stock: {
+        $multiply: ["$sale_price", "$quantity"],
+      }
+    },
+  },
+]);
