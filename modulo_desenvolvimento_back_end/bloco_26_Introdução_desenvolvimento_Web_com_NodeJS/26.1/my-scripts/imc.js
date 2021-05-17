@@ -1,9 +1,5 @@
 const readline = require('readline-sync');
 
-
-const peso = readline.questionFloat('Qual o seu peso (em kilos)? ');
-const altura = readline.questionFloat('Qual a sua altura (em metros)? ');
-
 const calculateStatus = (imc) => {
   let status;
 
@@ -33,12 +29,15 @@ const calculateStatus = (imc) => {
   }
 }
 
-const calculateIMC = (weigth, height) => {
-  const imc = weigth / (Math.pow(height, 2));
+const calculateIMC = () => {
+  const peso = readline.questionFloat('Qual o seu peso (em kilos)? ');
+  const altura = readline.questionFloat('Qual a sua altura (em metros)? ');
+
+  const imc = peso / (Math.pow(altura, 2));
 
   statusIMC = calculateStatus(imc);
 
-  return `Seu IMC é ${imc.toFixed(2)}. Seu status está ${statusIMC}!`;
+  console.log(`Seu IMC é ${imc.toFixed(2)}. Seu status está ${statusIMC}!`);
 };
 
-console.log(calculateIMC(peso, altura));
+module.exports = calculateIMC;
