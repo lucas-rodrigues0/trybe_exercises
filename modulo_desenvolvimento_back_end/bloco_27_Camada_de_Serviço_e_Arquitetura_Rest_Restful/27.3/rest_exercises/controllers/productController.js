@@ -3,38 +3,44 @@ const ProductModel = require('../models/productModel');
 
 const router = express.Router();
 
-router.get('/list-products', async (req, res, next) => {
+router.get('/list-products', async (_req, res, _next) => {
   const products = await ProductModel.getAll();
 
-  res.send(products);
+  res.status(200).json(products);
 });
 
-router.get('/get-by-id/:id', async (req, res, next) => {
-  const product = await ProductModel.getById(req.params.id);
+router.get('/list-products-by-id/:id', async (req, res, _next) => {
+  const { id } = req.params;
+  const product = await ProductModel.getById(id);
 
-  res.send(product);
+  res.status(200).json(product);
 });
 
-router.post('/add-user', async (req, res) => {
+router.post('/add-products', async (req, res, _next) => {
   const { name, brand } = req.body;
-
   const newProduct = await ProductModel.add(name, brand);
 
-  res.send(newProduct);
+  res.status(201).json({ message: "Successfully added!", description: newProduct });
 });
 
-router.post('/delete-user/:id', async (req, res) => {
-  const products = await ProductModel.exclude(req.params.id);
+router.delete('/delete-products/:id', async (req, res, _next) => {
+  const { id } = req.params;
+  const response = await ProductModel.exclude(id);
 
-  res.send(products);
+  if (response.length === 0) return res.status(404).json({ error: { code: "404", message: "Product not found" } });
+  if (!response) return res.status(500).json({ error: { code: "500", message: "Unable to delete" } });
+
+  res.status(200).json({ message: "Successfully deleted!"});
 });
 
-router.post('/update-user/:id', async (req, res) => {
+router.put('/update-products/:id', async (req, res, _next) => {
+  const { id } = req.params;
   const { name, brand } = req.body;
+  const response = await ProductModel.update(id, name, brand);
 
-  const products = await ProductModel.update(req.params.id, name, brand);
+  if (!response) return res.status(500).json({ error: { code: "500", message: "Unable to update" } });
 
-  res.send(products);
+  res.status(200).json({ message: "Successfully updated!"});
 });
 
 module.exports = router;
