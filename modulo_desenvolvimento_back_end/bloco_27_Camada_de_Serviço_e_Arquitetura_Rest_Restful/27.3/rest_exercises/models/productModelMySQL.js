@@ -1,4 +1,4 @@
-const connection = require('./connection');
+const connection = require('./connectionMySQL');
 
 const add = async (name, brand) => {
   try {
@@ -40,7 +40,13 @@ const getById = async (id) => {
 
 const update = async (id, name, brand) => {
   try {
-    await connection.query('UPDATE products SET name = ?, brand = ? WHERE id = ?', [ name, brand, id ])
+    const results = await connection.query('UPDATE products SET name = ?, brand = ? WHERE id = ?', [ name, brand, id ], (err, result) => {
+    if (err) throw err;
+    return result;
+    })
+
+    if (results[0].affectedRows === 0) return null;
+
     return true;
   } catch (err) {
     console.error(err);
@@ -51,7 +57,9 @@ const update = async (id, name, brand) => {
 const exclude = async (id) => {
   try {
     const product = await getById(id);
-    if (!product) return {};
+    console.log(product);
+    if (!product) return false;
+
     await connection.query('DELETE FROM products WHERE id = ?', [id])
     return true;
   } catch (err) {
