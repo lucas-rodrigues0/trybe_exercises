@@ -4,8 +4,13 @@ const validCep = (cep) => {
   return regexCep.test(cep);
 };
 
+const formatCepNumber = (numCep) => {
+  const formatedCepNumber = (numCep.includes('-')) ? numCep : `${numCep.slice(0, -3)}-${numCep.slice(-3)}`;
+  return formatedCepNumber;
+}
+
 const formatCep = ({ cep, logradouro, bairro, localidade, uf }) => {
-  const formatedCep = (cep.includes('-')) ? cep : `${cep.slice(0, -3)}-${cep.slice(-3)}`;
+  const formatedCep = formatCepNumber(cep);
   return {
     cep: formatedCep,
     logradouro,
@@ -17,14 +22,6 @@ const formatCep = ({ cep, logradouro, bairro, localidade, uf }) => {
 
 module.exports = {
   validCep,
-  formatCep
+  formatCep,
+  formatCepNumber,
 };
-
-
-// {
-//   "cep": "01001-000",
-//   "logradouro": "Praça da Sé",
-//   "bairro": "Sé",
-//   "localidade": "São Paulo",
-//   "uf": "SP",
-// }

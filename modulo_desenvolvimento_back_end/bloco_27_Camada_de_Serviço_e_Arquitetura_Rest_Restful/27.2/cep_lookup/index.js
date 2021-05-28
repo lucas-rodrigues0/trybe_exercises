@@ -16,12 +16,6 @@ router.get('/cep/:cep', Ceps.getByNumber);
 
 router.get('/cep', Ceps.getAll);
 
-// app.post('/cep', (req, res) => {
-//   const test = req.body;
-//   console.log(test);
-//   res.status(200).json(test);
-// })
-
 router.post('/cep', Ceps.createNew);
 
 app.use(errorMiddleware);
