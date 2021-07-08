@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+  <link rel="stylesheet" href="./css/feed.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" class="columns">
+    <div class="column">
+      <div class="tweet">
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <!-- <figure class="image is-64x64">
+                <img src="https://semantic-ui.com/images/avatar2/large/matthew.png" alt="Image">
+              </figure> -->
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <ul id="table">
+                  <div id="postTable" style="display: none;">
+                    <div>
+                      <h4 id="userName">User</h4>
+                      <p id="postContent">
+                        post
+                      </p>
+                    </div>
+                    <div class="level-left">
+                      <a class="level-item">
+                        <span class="icon is-small" id='likeIcon'><i class="fas fa-heart"></i></span>
+                        <span class="likes" id='currentLikes'>likes</span>
+                        <span class="icon is-small" id='starIcon'><i class="fas fa-star"></i></span>
+                        <span class="likes" id='currentStars'>stars</span>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+              </ul>
+
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/liked.js"></script>
+<script src="./js/stars.js"></script>
+<script src="./js/table.js"></script>
+
+</html>
