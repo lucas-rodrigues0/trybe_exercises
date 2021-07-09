@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
   <link rel="stylesheet" href="./css/feed.css">
   <title>Document</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socketLoad = io();
+    window.onload = () => socketLoad.emit('getPosts');
+  </script>
 </head>
 
 <body>
@@ -24,26 +29,25 @@
             </div>
             <div class="media-content">
               <div class="content">
-                <ul id="table">
-                  <div id="postTable" style="display: none;">
-                    <div>
-                      <h4 id="userName">User</h4>
-                      <p id="postContent">
-                        post
-                      </p>
-                    </div>
-                    <div class="level-left">
-                      <a class="level-item">
-                        <span class="icon is-small" id='likeIcon'><i class="fas fa-heart"></i></span>
-                        <span class="likes" id='currentLikes'>likes</span>
-                        <span class="icon is-small" id='starIcon'><i class="fas fa-star"></i></span>
-                        <span class="likes" id='currentStars'>stars</span>
-                      </a>
-                    </div>
+                <ul class="contentList">
+                  <div style="display: none">
+                    <li class="postItem">
+                      <div class="postContent">
+                        <h4 class="userName"></h4>
+                        <p class="postMessage"></p>
+                        <div class="level-left">
+                          <a class="level-item">
+                            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                            <span class="likes"></span>
+                            <span class="icon is-small"><i class="fas fa-star"></i></span>
+                            <span class="stars"></span>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
                   </div>
+                </ul>
               </div>
-              </ul>
-
             </div>
           </article>
         </div>
@@ -51,9 +55,10 @@
     </div>
   </div>
 </body>
-<script src="/socket.io/socket.io.js"></script>
-<script src="./js/liked.js"></script>
-<script src="./js/stars.js"></script>
+
+
+<!-- <script src="./js/liked.js"></script>
+<script src="./js/stars.js"></script> -->
 <script src="./js/table.js"></script>
 
 </html>

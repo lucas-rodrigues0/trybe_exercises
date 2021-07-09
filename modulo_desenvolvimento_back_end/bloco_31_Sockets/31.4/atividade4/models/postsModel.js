@@ -17,8 +17,8 @@ const add = async (user, post) => {
 };
 
 const getAll = async () => {
-  const result = await connection().then((db) => db.collection('post').find({}).toArray());
-
+  const result = await connection()
+    .then((db) => db.collection('posts').find().toArray());
   return result;
 }
 

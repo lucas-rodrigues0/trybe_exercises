@@ -20,8 +20,7 @@ io.on('connect', (socket) => {
   console.log(`User connected! ID: ${socket.id}`);
 });
 
-require('./sockets/liked')(io);
-require('./sockets/stars')(io);
+require('./sockets/index')(io);
 
 app.get('/', (_req, res) => {
   res.sendFile(__dirname + '/public/index.html');
