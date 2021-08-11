@@ -1,10 +1,14 @@
-def smaler_value(values):
-    result = values[0]
-    for value in values:
-        if value < result:
-            result = value
+# def smaler_value(values):
+#     result = values[0]
+#     for value in values:
+#         if value < result:
+#             result = value
 
-    return result
+#     return result
+
+
+def smaler_value(values):
+    return min(values)
 
 
 if __name__ == "__main__":
